@@ -1,0 +1,16 @@
+form {
+    width: 25%;
+    margin: 5% auto;
+    padding: 20px;
+    border: 1px solid #ccc;
+    background-color: #c5eef8;
+    font-weight: bold;
+}
+
+form input[type="number"] {
+    width: 70%;
+    padding: 10px;
+    margin-top: 2%;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+}
