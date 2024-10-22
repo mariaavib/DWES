@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <title>Recoger Datos</title>
+    <link rel="stylesheet" href="style.css">
+    <meta charset="utf-8">
+</head>
+<body>
+    <main>
+        <form action="recogerPost.php" method="post">
+            <legend>Preocupación personal</legend>
+            <div>
+                <label for="nombre">Nombre:</label>
+                <input type="text" id="nombre" name="nombre">
+                
+                <label for="contrasenia">Contraseña:</label>
+                <input type="password" id="contrasenia" name="contrasenia">
+                
+                <label>¿Te preocupa algún fenómeno?</label>
+                <input type="radio" name="preocupacion" value="si">Sí
+                <input type="radio" name="preocupacion" value="no">No
+                
+                <label>¿Qué fenómeno te preocupa más?</label>
+                <input type="checkbox" name="fenomenos[]" value="terremotos">Terremotos
+                <input type="checkbox" name="fenomenos[]" value="inundaciones">Inundaciones
+                <input type="checkbox" name="fenomenos[]" value="tsunamis">Tsunamis
+                <input type="checkbox" name="fenomenos[]" value="incendios">incendios
+                
+                <label for="descripcion">¿Por qué?:</label>
+                <textarea id="descripcion" name="descripcion"></textarea>
+                
+                <input type="submit" value="Enviar">
+                <input type="reset" value="Borrar">
+            </div>
+        </form>
+    </main>
+</body>
+</html>
