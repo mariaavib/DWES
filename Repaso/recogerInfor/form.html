@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Formulario</title>
+</head>
+<body>
+    <form action="recoger.php" method="POST">
+        <label for="texto">Texto: </label>
+        <input type="text" name="texto">
+        <label for="nombres">Nombres: </label>
+        <select name="nombres">
+            <option value="Celia">Celia</option>
+            <option value="Adriana">Adriana</option>
+            <option value="Maria">Maria</option>
+        </select>
+        <label for="eleccion">Es tonta: </label>
+        <input type="checkbox" name="eleccion[]" value="si es tonta">Si</input>
+        <input type="checkbox" name="eleccion[]" value="no">No</input>
+        <input type="checkbox" name="eleccion[]" value="puede">Puede</input>
+        <label for="eleccionR">Se pega pedos</label>
+        <input type="radio" name="eleccionR" value="si es una pedorra">Si</label>
+        <input type="radio" name="eleccionR" value="no">No</label>
+        <input type="submit" value="ENVIAR">
+    </form>
+</body>
+</html>

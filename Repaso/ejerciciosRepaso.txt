@@ -1,0 +1,9 @@
+Ejercicios:
+    - Forms -> ParImpar [Location]
+            -> Recoger inputs, select, checkbox [isset + empty]
+            
+    - Arrays -> 02ArrayAsoc [Imgs] 
+             -> Repasar creación diferentes arrays 
+            
+    - Objects -> POO1 [Operaciones con 2 nums] 
+              -> POO2 [Controlar Fechas]
