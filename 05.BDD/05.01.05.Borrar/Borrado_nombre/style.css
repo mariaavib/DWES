@@ -1,0 +1,50 @@
+body{
+    width: 100%;
+}
+
+form{
+    width: 50%;
+    background-color: rgb(255, 231, 200);
+    padding: 2%;    
+    margin: 0 auto;
+    border-radius: 2%;
+    border: 2px solid rgb(240, 197, 141);
+}
+
+legend{
+    font-size: 3vw;
+    text-align: center;
+    text-transform: uppercase;
+    font-weight: bold;
+}
+
+ol{
+    list-style: none;
+}
+
+ol li{
+    padding-bottom: 2%;
+}
+
+ol li label{
+    text-transform: uppercase;
+}
+
+ol li input{
+    width: 60%;
+    padding: 0.5%;
+    display: flex;
+}
+
+input[type="submit"],
+input[type="reset"]{
+    display: inline-block;
+    width: 20%;
+    padding: 1%;
+    margin-right: 2%;
+    margin-top: 3%;
+    text-transform: uppercase;
+    border-radius: 2%;
+    border: 1px solid rgb(240, 197, 141);
+    background-color: rgb(208, 238, 198);
+}

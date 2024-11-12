@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="style.css">
+    <title>Introducir Datos</title>
+</head>
+<body>
+    <form action="./introducirDatos.php" method="post">
+        <legend>Introducir datos del alumno</legend>
+        <ol>
+            <li>
+                <label for="text">Nombre: </label>
+                <input type="text" name="nombre"/>
+            </li>
+            <li>
+                <label for="text">Apellidos: </label>
+                <input type="text" name="apellidos"/>
+            </li>
+            <li>
+                <label for="text">Correo: </label>
+                <input type="text" name="email"/>
+            </li>
+            
+        </ol>   
+        <input type="reset" value="Cancelar"/>
+        <input type="submit" value="Enviar"/>
+    </form>
+</body>
+</html>
