@@ -36,5 +36,5 @@
     
     /*Cerrar la conexión establecida*/
 	$mysqli->close();
-
+    
 ?>

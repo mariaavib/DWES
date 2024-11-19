@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Formulario</title>
+</head>
+<body>
+    <form action="usar_clase.php" method="POST">
+        <label>Nombre: </label>
+        <input type="text" name="nombre"><br><br>
+        <label>Apellidos: </label>
+        <input type="text" name="apellidos"><br><br>
+        <label>Formato: </label><br>
+        <input type="radio" name="formato" value="apellidoNombre">Apellido,Nombre<br><br>
+        <input type="radio" name="formato" value="nombreApellido">Nombre Apellido<br><br>
+        <select name="provincia">
+            <option value="Badajoz">Badajoz</option>
+            <option value="Caceres">Caceres</option>
+        </select>
+        <br>
+        <br>
+        <input type="submit" value="Enviar">
+        <input type="reset" value="Restablecer">
+    </form>
+</body>
+</html>
