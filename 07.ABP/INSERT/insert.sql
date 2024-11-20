@@ -65,7 +65,7 @@ CREATE TABLE clases_asignaturas (
 
 -- Crear tabla Libros
 CREATE TABLE Libros (
-    ISBN SMALLINT UNSIGNED AUTO_INCREMENT,
+    ISBN char (13),
     nombre VARCHAR(50) NOT NULL,
     precio DECIMAL(10, 2) NOT NULL,
     idEditorial SMALLINT UNSIGNED NOT NULL,
@@ -74,16 +74,6 @@ CREATE TABLE Libros (
     CONSTRAINT fk_libros_editoriales FOREIGN KEY (idEditorial) REFERENCES Editoriales(idEditorial),
     CONSTRAINT fk_libros_asignaturas FOREIGN KEY (idAsignatura) REFERENCES Asignaturas(idAsignatura)
 );
-
--- Crear tabla Libros_Cursos
-CREATE TABLE Libros_Cursos (
-    ISBN SMALLINT UNSIGNED NOT NULL,
-    idCurso CHAR(6) NOT NULL,
-    CONSTRAINT pk_libros_cursos PRIMARY KEY (ISBN, idCurso),
-    CONSTRAINT fk_libros_cursos_libros FOREIGN KEY (ISBN) REFERENCES Libros(ISBN),
-    CONSTRAINT fk_libros_cursos_cursos FOREIGN KEY (idCurso) REFERENCES Cursos(idCurso)
-);
-
 -- Crear tabla Reservas
 CREATE TABLE Reservas (
     idReserva INT UNSIGNED AUTO_INCREMENT,
@@ -104,25 +94,26 @@ CREATE TABLE Reservas (
 
 -- Crear tabla Reservas_Libros
 CREATE TABLE Reservas_Libros (
-    ISBN SMALLINT UNSIGNED NOT NULL,
+    ISBN char (13) NOT NULL,
     idReserva INT UNSIGNED NOT NULL,
     entregado BOOLEAN NOT NULL,
     CONSTRAINT pk_reservas_libros PRIMARY KEY (ISBN, idReserva),
     CONSTRAINT fk_reservas_libros_libros FOREIGN KEY (ISBN) REFERENCES Libros(ISBN),
     CONSTRAINT fk_reservas_libros_reservas FOREIGN KEY (idReserva) REFERENCES Reservas(idReserva)
 );
+
 -- INSERT en Cursos
 INSERT INTO Cursos (idCurso, nombre) VALUES
-('1Inf', '1 Infantil'),
-('2Inf', '2 Infantil'),
-('1BachC', '1 Bachillerato Ciencias'),
-('2BachC', '2 Bachillerato Ciencias'),
-('1BachL', '1 Bachillerato Letras'),
-('2BachL', '2 Bachillerato Letras'),
-('1DAW', '1 Desarrollo de Aplicaciones Web'),
-('2DAW', '2 Desarrollo de Aplicaciones Web'),
-('1SMR', '1 Sistemas Microinformáticos y Redes'),
-('2SMR', '2 Sistemas Microinformáticos y Redes'),
+('1Inf', '1º Infantil'),
+('2Inf', '2º Infantil'),
+('1BachC', '1º Bachillerato Ciencias'),
+('2BachC', '2º Bachillerato Ciencias'),
+('1BachL', '1º Bachillerato Letras'),
+('2BachL', '2º Bachillerato Letras'),
+('1DAW', '1º Desarrollo de Aplicaciones Web'),
+('2DAW', '2º Desarrollo de Aplicaciones Web'),
+('1SMR', '1º Sistemas Microinformáticos y Redes'),
+('2SMR', '2º Sistemas Microinformáticos y Redes'),
 ('1EVA', '1º Electromecánica de Vehiculos Automoviles'),
 ('2EVA', '2º Electromecánica de Vehiculos Automoviles'),
 ('1GA', '1º Gestión Administrativa'),

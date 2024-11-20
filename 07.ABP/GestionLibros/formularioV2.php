@@ -1,3 +1,8 @@
+<?php
+    require_once("./procedimientos.php");
+    $objProcedimientos = new Procedimientos('localhost', 'root', '', 'applibros');
+    $objProcedimientos->cursos();
+?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -26,50 +31,17 @@
         </div>
     </header>
     <main>
-        <div class="titulo-y-controles">
-            <button class="añadir">+</button>
-            <h2 class="tituloTotalLibros">Total de Libros</h2>
-            <button class="filtrar">Filtrar</button>
-            <button class="ordenar">Ordenar</button>
-        </div>
-        <table class="tablaLibros" >
-            <!-- <caption>$curso</caption> -->
-            <tr>
-                <th>ISBN</th>
-                <th>Título</th>
-                <th>Clase</th>
-                <th>Activo</th>
-                <th>Modificar</th>
-                <th>Eliminar</th>
-             </tr>
-            <tr>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td><button id="modificar">Modificar</button></td>
-                <td><button id="eliminar">Eliminar</button></td>
-            </tr>
-            <tr>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td><button id="modificar">Modificar</button></td>
-                <td><button id="eliminar">Eliminar</button></td>
-            </tr>
-            <tr>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td><button id="modificar">Modificar</button></td>
-                <td><button id="eliminar">Eliminar</button></td>
-            </tr>
-        </table>
+        <form action="gestionLibros.php" method="POST">
+            <h2>Gestionar libros</h2>
+            <select name="clases" id="clases">
+            <option value="" disabled selected>Seleccione un curso</option>
+                <?php
+                    for($i=1;$i<=count($objProcedimientos->idCurso);$i++)
+                        echo '<option value="'.$objProcedimientos->idCurso[$i].'">'.$objProcedimientos->nombre[$i].'</option>';
+                ?>
+            </select>
+            <input type="submit" value="Enviar">
+        </form>
     </main>
     <footer>
         <div class="colaboradores">
