@@ -38,7 +38,6 @@
             <button class="ordenar">Ordenar</button>
         </div>
         <table class="tablaLibros" >
-            <!-- <caption>$curso</caption> -->
             <tr>
                 <th>ISBN</th>
                 <th>Título</th>
