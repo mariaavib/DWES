@@ -37,7 +37,7 @@
             <button class="filtrar">Filtrar</button>
             <button class="ordenar">Ordenar</button>
         </div>
-        <table class="tablaLibros" >0
+        <table class="tablaLibros" >
             <tr>
                 <th>ISBN</th>
                 <th>Título</th>
@@ -47,23 +47,25 @@
                 <th>Eliminar</th>
              </tr>
                 <?php 
-                    for ($i=0; $i < count($objProcedimientos->isbn); $i++) { 
-                       echo '<tr><td>'.$objProcedimientos->isbn[$i].'</td>';
-                       echo '<td>'.$objProcedimientos->titulo[$i].'</td>';
-                       echo '<td>'.$objProcedimientos->clases[$i].'</td>';
-                       if($objProcedimientos->activo[$i] == 0){
-                            echo '<td>NO</td>';
-                       }else{
-                            echo '<td>SI</td>';
-                       }
-                       echo '<td><button id="modificar">Modificar</button></td>';
-                       echo '<td><button id="eliminar" onclick="borrar()">Eliminar</button></td></tr>';
-                    }  
+                    if($objProcedimientos->resultado == true){
+                        for ($i=0; $i < count($objProcedimientos->isbn); $i++) { 
+                            echo '<tr><td>'.$objProcedimientos->isbn[$i].'</td>';
+                            echo '<td>'.$objProcedimientos->titulo[$i].'</td>';
+                            echo '<td>'.$objProcedimientos->clases[$i].'</td>';
+                            if($objProcedimientos->activo[$i] == 0){
+                                    echo '<td>NO</td>';
+                            }else{
+                                    echo '<td>SI</td>';
+                            }
+                            echo '<td><button id="modificar">Modificar</button></td>';
+                            echo '<td><a id="eliminar" href="./borrar.php?isbn='.$objProcedimientos->isbn[$i]."&clases='".$objProcedimientos->clases[$i]."'">Eliminar</a></td></tr>";
+                        } 
+                    }else{
+                        echo $objProcedimientos->resultado;
+                    }
                 ?>
-                <script>
-                    window.location.href = '$objProcedimientos->borrar()';
-                </script>
         </table>
+        <a href="./formularioV2.php" class="volver">Volver</a>
     </main>
     <footer>
         <div class="colaboradores">

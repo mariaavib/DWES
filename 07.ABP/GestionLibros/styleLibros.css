@@ -110,6 +110,18 @@ nav > a:hover {
     background-color: var(--color-azul-oscuro);
 }
 
+.volver{
+    text-align: center;
+    background-color: var(--color-azul-claro);
+    color: var(--color-blanco);
+    border: none;
+    font-size: 3vh;
+    border-radius: 5px;
+    margin-left: 2%;
+    padding: 10px 20px;
+    cursor: pointer;
+}
+
 .titulo-y-controles{
     width: 100%;
     margin: 2% auto;

@@ -2,7 +2,7 @@
     require_once("./datosConexion.php");
     $mysqli = new mysqli($servidor, $usuario, $contraseña, $basedatos);
 
-    if ($mysqli->connect_error) {
+    /*if ($mysqli->connect_error) {
         die("Error de conexión: " . $mysqli->connect_error);
     }
 
@@ -16,7 +16,7 @@
         }
     } else {
         die("Error en la consulta: " . $mysqli->error);
-    }
+    }*/
 ?>
 
 <!DOCTYPE html>

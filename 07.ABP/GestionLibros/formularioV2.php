@@ -31,7 +31,7 @@
         </div>
     </header>
     <main>
-        <form action="gestionLibros.php" method="POST">
+        <form action="gestionLibros.php" method="POST" id="formulario">
             <h2>Gestionar libros</h2>
             <select name="clases" id="clases">
             <option value="" disabled selected>Seleccione un curso</option>
