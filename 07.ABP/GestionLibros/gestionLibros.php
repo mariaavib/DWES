@@ -37,7 +37,7 @@
             <button class="filtrar">Filtrar</button>
             <button class="ordenar">Ordenar</button>
         </div>
-        <table class="tablaLibros" >
+        <table class="tablaLibros" >0
             <tr>
                 <th>ISBN</th>
                 <th>Título</th>
