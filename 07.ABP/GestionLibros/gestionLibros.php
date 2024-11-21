@@ -51,11 +51,18 @@
                        echo '<tr><td>'.$objProcedimientos->isbn[$i].'</td>';
                        echo '<td>'.$objProcedimientos->titulo[$i].'</td>';
                        echo '<td>'.$objProcedimientos->clases[$i].'</td>';
-                       echo '<td>'.$objProcedimientos->activo[$i].'</td>'; 
+                       if($objProcedimientos->activo[$i] == 0){
+                            echo '<td>NO</td>';
+                       }else{
+                            echo '<td>SI</td>';
+                       }
                        echo '<td><button id="modificar">Modificar</button></td>';
-                       echo '<td><button id="eliminar">Eliminar</button></td></tr>';
+                       echo '<td><button id="eliminar" onclick="borrar()">Eliminar</button></td></tr>';
                     }  
                 ?>
+                <script>
+                    window.location.href = '$objProcedimientos->borrar()';
+                </script>
         </table>
     </main>
     <footer>
