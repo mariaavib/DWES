@@ -8,15 +8,22 @@ class Procedimientos {
     public $clases;
     public $activo;
     public $resultado;
+    public $cursoSeleccionado;
 
     public function __construct($servidor, $usuario, $contraseña, $basedatos) {
         $this->mysqli = new mysqli($servidor, $usuario, $contraseña, $basedatos);
 
+        //Verificar si hay errores de conexión
         if ($this->mysqli->connect_error) {
             die("Error de conexión: " . $this->mysqli->connect_error);
         }
+
+        //Asignar el curso seleccionado 
+        if(!empty($_POST["clases"]))
+            $this->cursoSeleccionado = $_POST["clases"]; 
     }
 
+    //Método para obtener los cursos
     public function cursos(){
         $consulta = "SELECT idCurso,nombre FROM cursos";
         $resultado=$this->mysqli->query($consulta);
@@ -30,7 +37,7 @@ class Procedimientos {
             die("Error en la consulta: " . $this->mysqli->error);
         }
     }
-
+    //Método para obtener los libros por curso
     public function librosPorCurso() {
         try {
            $consulta = "SELECT libros.ISBN,libros.nombre AS titulo,clases.idCurso,clases.letraClase, reservas_libros.entregado

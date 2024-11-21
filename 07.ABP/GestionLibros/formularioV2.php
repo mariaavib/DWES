@@ -1,5 +1,5 @@
 <?php
-    require_once("./procedimientos.php");
+    require_once("./procedimientoscopy.php");
     $objProcedimientos = new Procedimientos('localhost', 'root', '', 'applibros');
     $objProcedimientos->cursos();
 ?>

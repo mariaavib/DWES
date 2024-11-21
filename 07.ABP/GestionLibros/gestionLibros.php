@@ -1,5 +1,5 @@
 <?php
-    require_once("./procedimientos.php");
+    require_once("./procedimientoscopy.php");
     $objProcedimientos = new Procedimientos('localhost', 'root', '', 'applibros');
     $objProcedimientos->librosPorCurso();
 ?>
@@ -9,7 +9,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Gestión de libros</title>
-    <link rel="stylesheet" href="styleLibros.css">
+    <link rel="stylesheet" href="./styleLibros.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
 <body>
@@ -46,8 +46,9 @@
                 <th>Modificar</th>
                 <th>Eliminar</th>
              </tr>
-                <?php 
-                    if($objProcedimientos->resultado == true){
+                <?php
+                    echo '<h1 class="titCurso">'.$objProcedimientos->cursoSeleccionado.'</h1>'; 
+                    if($objProcedimientos->isbn > 0){
                         for ($i=0; $i < count($objProcedimientos->isbn); $i++) { 
                             echo '<tr><td>'.$objProcedimientos->isbn[$i].'</td>';
                             echo '<td>'.$objProcedimientos->titulo[$i].'</td>';
@@ -58,10 +59,10 @@
                                     echo '<td>SI</td>';
                             }
                             echo '<td><button id="modificar">Modificar</button></td>';
-                            echo '<td><a id="eliminar" href="./borrar.php?isbn='.$objProcedimientos->isbn[$i]."&clases='".$objProcedimientos->clases[$i]."'">Eliminar</a></td></tr>";
+                            echo '<td><a id="eliminar" href="./borrar.php?isbn=' . $objProcedimientos->isbn[$i] . '&clases=' . $objProcedimientos->clases[$i] . '">Eliminar</a></td></tr>';
                         } 
                     }else{
-                        echo $objProcedimientos->resultado;
+                        echo "<p>No existen libros ".$objProcedimientos->cursoSeleccionado."</p>";   
                     }
                 ?>
         </table>
