@@ -1,6 +1,8 @@
 <?php
     require_once("./procedimientoscopy.php");
     $objProcedimientos = new Procedimientos('localhost', 'root', '', 'applibros');
+    if(isset($_GET['cusoSelct']))
+        $objProcedimientos->cursoSeleccionado = $_GET['cusoSelct'];
     $objProcedimientos->librosPorCurso();
 ?>
 <!DOCTYPE html>
@@ -59,10 +61,10 @@
                                     echo '<td>SI</td>';
                             }
                             echo '<td><button id="modificar">Modificar</button></td>';
-                            echo '<td><a id="eliminar" href="./borrar.php?isbn=' . $objProcedimientos->isbn[$i] . '&clases=' . $objProcedimientos->clases[$i] . '">Eliminar</a></td></tr>';
+                            echo '<td><a id="eliminar" href="./borrar.php?isbn=' . $objProcedimientos->isbn[$i] . '&cusoSelct=' . $objProcedimientos->cursoSeleccionado . '">Eliminar</a></td></tr>';
                         } 
                     }else{
-                        echo "<p>No existen libros ".$objProcedimientos->cursoSeleccionado."</p>";   
+                        echo '<p class="noLibros">No existen libros para el curso '.$objProcedimientos->cursoSeleccionado.'</p>';   
                     }
                 ?>
         </table>

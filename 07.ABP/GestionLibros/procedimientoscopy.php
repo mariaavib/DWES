@@ -47,11 +47,10 @@ class Procedimientos {
                         INNER JOIN reservas 
                             ON reservas_libros.idReserva = reservas.idReserva
                         INNER JOIN clases 
-                            ON reservas.idCurso = clases.idCurso AND clases.idCurso = '".$_POST['clases']."'
+                            ON reservas.idCurso = clases.idCurso AND clases.idCurso = '".$this->cursoSeleccionado."'
 		                        AND reservas.letraClase = clases.letraClase;";
-
             $resultado=$this->mysqli->query($consulta);
-            if(isset($resultado))
+            if(!isset($resultado))
                 throw new Exception("No hay libros para el curso seleccionado");   
 
             $this->resultado = true;

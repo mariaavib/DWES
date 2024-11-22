@@ -11,7 +11,7 @@
         if(!$resultado){
             throw new Exception("Error");
         }else{
-            header("'Location:gestionLibros.php?".$_GET["clases"]."'");
+            header("Location:gestionLibros.php?cusoSelct=".$_GET["cusoSelct"]);
         }
     } catch (Exception $th) {
         $resultado=$th;

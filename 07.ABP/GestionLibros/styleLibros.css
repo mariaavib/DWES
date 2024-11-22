@@ -112,14 +112,20 @@ nav > a:hover {
 
 .volver{
     text-align: center;
+    text-decoration: none;
     background-color: var(--color-azul-claro);
     color: var(--color-blanco);
     border: none;
-    font-size: 3vh;
+    font-size: 18px;
     border-radius: 5px;
     margin-left: 2%;
     padding: 10px 20px;
     cursor: pointer;
+    text-transform: uppercase;
+}
+
+.volver:hover{
+    background-color: var(--color-azul-oscuro);
 }
 
 .titulo-y-controles{
@@ -201,16 +207,27 @@ form input[type="submit"]:hover {
 
 /*** Tabla total de libros ***/
 /*Estilo del titulo de los cursos*/
-.titcurso {
-    font-size: 5px; 
+.titCurso {
+    font-size: 30px; 
     color: var(--color-azul-oscuro); 
     text-align: center; 
-    margin-top: 20px; 
-    margin-bottom: 20px; 
+    margin-top: 2%; 
+    margin-bottom: 2%; 
     font-weight: bold; 
     text-transform: uppercase;
     letter-spacing: 2px; 
 }
+
+.noLibros{
+    font-size: 20px; 
+    color: var(--color-azul-oscuro); 
+    text-align: center; 
+    margin-top: 2%; 
+    margin-bottom: 2%; 
+    font-weight: bold; 
+    text-transform: uppercase;
+}
+
 .tablaLibros{
     width:  80%;
     border-collapse: collapse;
@@ -237,7 +254,7 @@ form input[type="submit"]:hover {
 
 /*** Botones de las tablas ***/
 #modificar, #eliminar{
-    padding: 3% 2%;
+    padding: 6% 5%;
     background-color: var(--color-azul-claro);
     color: var(--color-blanco);
     border: none;
@@ -245,6 +262,7 @@ form input[type="submit"]:hover {
     cursor: pointer;
     border-radius: 4px;
     transition: 0.3s;
+    text-decoration: none;
 }
 
 #modificar:hover, #eliminar:hover{
@@ -255,7 +273,7 @@ form input[type="submit"]:hover {
 /****** FOOTER ******/
 footer {
     position: absolute;
-    bottom: 0;
+    margin-top: 20%;
     padding: 20px 0;
     width: 100%;
     background-color: var(--color-admin-oscuro);
