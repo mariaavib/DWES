@@ -34,17 +34,17 @@ class Procedimientos {
     //Método para obtener los libros por curso
     public function librosPorCurso() {
         try {
-           $consulta = "SELECT libros.ISBN,libros.nombre AS titulo,clases.idCurso,clases.letraClase, reservas_libros.entregado
+           $consulta = "SELECT libros.ISBN, libros.nombre AS titulo, clases.idCurso, clases.letraClase, reservas_libros.entregado AS activo
                         FROM libros
                         INNER JOIN reservas_libros 
-                            ON  libros.ISBN = reservas_libros.ISBN
+                            ON libros.ISBN = reservas_libros.ISBN
                         INNER JOIN reservas 
                             ON reservas_libros.idReserva = reservas.idReserva
                         INNER JOIN clases 
                             ON reservas.idCurso = clases.idCurso AND clases.idCurso = '".$this->cursoSeleccionado."'
-		                        AND reservas.letraClase = clases.letraClase;";
-            $resultado=$this->mysqli->query($consulta);
-            if(!isset($resultado))
+                            AND reservas.letraClase = clases.letraClase;";
+            $resultado = $this->mysqli->query($consulta);
+            if (!$resultado)
                 throw new Exception("No hay libros para el curso seleccionado");   
 
             return $resultado;
