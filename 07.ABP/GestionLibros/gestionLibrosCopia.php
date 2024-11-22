@@ -1,9 +1,9 @@
 <?php
-    require_once("./procedimientoscopy.php");
+    require_once("./procedimientosCopia2.php");
     $objProcedimientos = new Procedimientos('localhost', 'root', '', 'applibros');
     if(isset($_GET['cusoSelct']))
         $objProcedimientos->cursoSeleccionado = $_GET['cusoSelct'];
-    $datos = $objProcedimientos->librosPorCurso();
+    $objProcedimientos->librosPorCurso();
 ?>
 <!DOCTYPE html>
 <html>
@@ -50,19 +50,18 @@
              </tr>
                 <?php
                     echo '<h1 class="titCurso">'.$objProcedimientos->cursoSeleccionado.'</h1>'; 
-                    if(!empty($datos)){
-                        while ($fila = $datos->fetch_assoc()) { 
-                            echo $fila["ISBN"].$fila["titulo"].$fila["idCuso"].' '.$fila["letraClase"];
-                            echo '<tr><td>'.$fila["ISBN"].'</td>';
-                            echo '<td>'.$fila["titulo"].'</td>';
-                            echo '<td>'.$fila["idCuso"].' '.$fila["letraClase"].'</td>';
-                            if($fila["activo"] == 0){
+                    if($objProcedimientos->isbn > 0){
+                        for ($i=0; $i < count($objProcedimientos->isbn); $i++) { 
+                            echo '<tr><td>'.$objProcedimientos->isbn[$i].'</td>';
+                            echo '<td>'.$objProcedimientos->titulo[$i].'</td>';
+                            echo '<td>'.$objProcedimientos->clases[$i].'</td>';
+                            if($objProcedimientos->activo[$i] == 0){
                                     echo '<td>NO</td>';
                             }else{
                                     echo '<td>SI</td>';
                             }
                             echo '<td><button id="modificar">Modificar</button></td>';
-                            echo '<td><a id="eliminar" href="./borrar.php?isbn=' . $fila["isbn"] . '&cusoSelct=' . $objProcedimientos->cursoSeleccionado . '">Eliminar</a></td></tr>';
+                            echo '<td><a id="eliminar" href="./borrar.php?isbn=' . $objProcedimientos->isbn[$i] . '&cusoSelct=' . $objProcedimientos->cursoSeleccionado . '">Eliminar</a></td></tr>';
                         } 
                     }else{
                         echo '<p class="noLibros">No existen libros para el curso '.$objProcedimientos->cursoSeleccionado.'</p>';   
