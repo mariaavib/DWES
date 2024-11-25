@@ -34,7 +34,7 @@
     </header>
     <main>
         <div class="titulo-y-controles">
-            <button class="añadir">+</button>
+            <button class="añadir" onclick="window.location.href='./introducirLibros.php'">+</button>
             <h2 class="tituloTotalLibros">Total de Libros</h2>
             <button class="filtrar">Filtrar</button>
             <button class="ordenar">Ordenar</button>
