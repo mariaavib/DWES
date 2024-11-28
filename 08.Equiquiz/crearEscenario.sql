@@ -8,7 +8,7 @@ USE equiquiz;
 CREATE TABLE Escenarios (
     idEscenario TINYINT UNSIGNED AUTO_INCREMENT,
     ambito VARCHAR(25) NOT NULL,
-    rutaMapa VARCHAR(250) NOT NULL,
+    rutaMapa longblob NOT NULL,
     CONSTRAINT pk_escenarios PRIMARY KEY (idEscenario)
 );
 

@@ -1,15 +1,15 @@
 <?php
     require_once("./procedimientoscopy.php");
     $objProcedimientos = new Procedimientos('localhost', 'root', '', 'applibros');
-    $objProcedimientos->cursos();
-
+    $editoriales = $objProcedimientos->obtenerEditoriales();
+    $asignaturas = $objProcedimientos->obtenerAsignaturas();
 ?>
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Gestión de libros</title>
+    <title>Añadir libros</title>
     <link rel="stylesheet" href="styleLibros.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
@@ -31,19 +31,45 @@
             </a>
         </div>
     </header>
-    <main>
-        <form action="gestionLibros.php" method="POST" id="formulario">
-            <h2>Gestionar libros</h2>
-            <select name="clases" id="clases">
-            <option value="" disabled selected>Seleccione un curso</option>
-                <?php
-                    for($i=1;$i<=count($objProcedimientos->idCurso);$i++)
-                        echo '<option value="'.$objProcedimientos->idCurso[$i].'">'.$objProcedimientos->nombre[$i].'</option>';
-                ?>
-            </select>
-            <input type="submit" value="Enviar">
-        </form>
-    </main>
+    <form action="./introducirL.php" method="post" class="formAñadir">
+        <legend>Introducir datos del libro</legend>
+        <ol>
+            <li>
+                <label for="isbn">ISBN: </label>
+                <input type="text" name="isbn"/>
+            </li>
+            <li>
+                <label for="nombre">Nombre: </label>
+                <input type="text" name="nombre"/>
+            </li>
+            <li>
+                <label for="precio">Precio: </label>
+                <input type="text" name="precio"/>
+            </li>
+            <li>
+                <label for="idEditorial">Editorial: </label>
+                <select name="idEditorial" id="nombreEdit">
+                    <option value="" disabled selected>Seleccione una editorial</option>
+                    <?php
+                        for($i=1;$i<=count($objProcedimientos->idEditorial);$i++)
+                        echo '<option value="'.$objProcedimientos->idEditorial[$i].'">'.$objProcedimientos->nombreEdit[$i].'</option>';
+                    ?>
+                </select>
+            </li>
+            <li>
+                <label for="idAsignatura">Asignatura: </label>
+                <select name="idAsignatura" id="nombreAsign">
+                    <option value="" disabled selected>Seleccione una asignatura</option>
+                    <?php
+                        for($i=1;$i<=count($objProcedimientos->idAsignatura);$i++)
+                        echo '<option value="'.$objProcedimientos->idAsignatura[$i].'">'.$objProcedimientos->nombreAsign[$i].'</option>';
+                    ?>
+                </select>
+            </li>
+        </ol>   
+        <input type="reset" value="Cancelar"/>
+        <input type="submit" value="Enviar"/>
+    </form>
     <footer>
         <div class="colaboradores">
             <b>Colaboradores</b>

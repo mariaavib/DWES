@@ -34,7 +34,7 @@
     </header>
     <main>
         <div class="titulo-y-controles">
-            <button class="añadir">+</button>
+            <button class="añadir" onclick="window.location.href='./introducirLibros.php'">+</button>
             <h2 class="tituloTotalLibros">Total de Libros</h2>
             <button class="filtrar">Filtrar</button>
             <button class="ordenar">Ordenar</button>
@@ -52,17 +52,17 @@
                     echo '<h1 class="titCurso">'.$objProcedimientos->cursoSeleccionado.'</h1>'; 
                     if(!empty($datos)){
                         while ($fila = $datos->fetch_assoc()) { 
-                            echo $fila["ISBN"].$fila["titulo"].$fila["idCuso"].' '.$fila["letraClase"];
+                            echo $fila["ISBN"].$fila["titulo"].$fila["idCurso"].' '.$fila["letraClase"];
                             echo '<tr><td>'.$fila["ISBN"].'</td>';
                             echo '<td>'.$fila["titulo"].'</td>';
-                            echo '<td>'.$fila["idCuso"].' '.$fila["letraClase"].'</td>';
+                            echo '<td>'.$fila["idCurso"].' '.$fila["letraClase"].'</td>';
                             if($fila["activo"] == 0){
                                     echo '<td>NO</td>';
                             }else{
                                     echo '<td>SI</td>';
                             }
                             echo '<td><button id="modificar">Modificar</button></td>';
-                            echo '<td><a id="eliminar" href="./borrar.php?isbn=' . $fila["isbn"] . '&cusoSelct=' . $objProcedimientos->cursoSeleccionado . '">Eliminar</a></td></tr>';
+                            echo '<td><a id="eliminar" href="./borrar.php?isbn=' . $fila["ISBN"] . '&cusoSelct=' . $objProcedimientos->cursoSeleccionado . '">Eliminar</a></td></tr>';
                         } 
                     }else{
                         echo '<p class="noLibros">No existen libros para el curso '.$objProcedimientos->cursoSeleccionado.'</p>';   
