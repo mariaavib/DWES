@@ -5,7 +5,6 @@
         die("Error de conexión: " . $mysqli->connect_error);
     }
     $objSubirImg = new SubirImg($mysqli);
-    $objSubirImg->eleccionEscenario();
 ?>
 <!DOCTYPE html>
 <html>
@@ -15,10 +14,12 @@
     <title>Escenarios</title>
 </head>
 <body>
+
     <?php
-        echo '<a href='.$objSubirImg->eleccionEscenario().'>Escenario1</a>';
+        //echo '<img src="../'.$objSubirImg->eleccionEscenario().'"alt="Escenario 1">';
+        echo '<a href="'.$objSubirImg->verImagen($objSubirImg->eleccionEscenario()).'>"Educacion"</a>';
     ?>
-   <button>Escenario 2</button>
-   <button>Escenario 3</button>
+   <!-- <button>Escenario 2</button>
+   <button>Escenario 3</button> -->
 </body>
 </html>
