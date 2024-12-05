@@ -1,4 +1,5 @@
-/*if (isset($_POST["ambito"]) && isset($_FILES["imagen"])) {
+<?php
+if (isset($_POST["ambito"]) && isset($_FILES["imagen"])) {
                 // Guardar el ambito y la imagen en otras variables
                 $this->ambito = $_POST["ambito"];
                 $this->imagen = $_FILES["imagen"];
@@ -23,4 +24,5 @@
             } else {
                 echo "Datos de formulario incompletos";
             }
-        }*/
+        }
+?>
