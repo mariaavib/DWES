@@ -14,7 +14,6 @@
              header("Location:formularioV2.php");
         }
         
-        
     } catch(Exception $e) {
         echo $e->getMessage();
     }
