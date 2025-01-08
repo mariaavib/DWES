@@ -1,10 +1,16 @@
 <?php
+    require_once("./config_db.php");
     require_once("./subir_imagen.php");
+    require_once("./verImagen.php");
+
     $mysqli = new mysqli($servidor, $usuario, $contraseña, $basedatos);
     if ($mysqli->connect_error) {
         die("Error de conexión: " . $mysqli->connect_error);
     }
+
     $objSubirImg = new SubirImg($mysqli);
+    $objVerImg = new verImg();
+
 ?>
 <!DOCTYPE html>
 <html>
@@ -14,12 +20,18 @@
     <title>Escenarios</title>
 </head>
 <body>
-
     <?php
-        //echo '<img src="../'.$objSubirImg->eleccionEscenario().'"alt="Escenario 1">';
-        echo '<a href="'.$objSubirImg->verImagen($objSubirImg->eleccionEscenario()).'>"Educacion"</a>';
+        $rutaImagen = $objSubirImg->eleccionEscenario();
+        
+        if ($rutaImagen) {
+            echo '<a href="./visualizarFondo.php?rutaFondo=../' . $rutaImagen . '">Educacion</a>';
+        } else {
+            echo "No se encontró la imagen.";
+        }
+
     ?>
-   <!-- <button>Escenario 2</button>
-   <button>Escenario 3</button> -->
+   <a>Laboral</a>
+   <a>Salud</a>
+   
 </body>
 </html>

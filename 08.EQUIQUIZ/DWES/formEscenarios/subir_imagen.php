@@ -8,18 +8,16 @@
             $this->mysqli = $mysqli;
         }
 
-        public function verImagen($fila){
-            echo '<img src="../'.$fila.'"alt="Educacion">';
-        }
-
         public function eleccionEscenario() {    
-            
             $consulta = "SELECT rutaImagen FROM escenarios WHERE ambito='Educación';";
-            
             $resultado = $this->mysqli->query($consulta);
-            $fila=$resultado->fetch_assoc();
-            
-            return $fila["rutaImagen"];
+
+            if ($resultado && $resultado->num_rows > 0) {
+                $fila = $resultado->fetch_assoc();
+                return $fila["rutaImagen"];
+            } else { 
+                return null;
+            }
         }
     }
 
