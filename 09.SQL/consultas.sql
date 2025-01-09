@@ -111,5 +111,6 @@ SELECT department.`name` AS nombreDepart ,COUNT(*) AS numTrabajadores
 FROM employee
 INNER JOIN department
 	ON employee.dept_id = department.dept_id
+WHERE YEAR(start_date) = 2002
 GROUP BY employee.dept_id
 HAVING COUNT(*)>2;
