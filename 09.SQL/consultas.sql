@@ -127,8 +127,3 @@ FROM employee
 LEFT JOIN employee AS jefes
     ON employee.superior_emp_id = jefes.emp_id
 WHERE jefes.emp_id IS NULL;
-
-
-
-
-
