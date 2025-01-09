@@ -114,3 +114,21 @@ INNER JOIN department
 WHERE YEAR(start_date) = 2002
 GROUP BY employee.dept_id
 HAVING COUNT(*)>2;
+
+/*--Numeros de jefes que hay--*/
+SELECT COUNT(DISTINCT jefes.emp_id) AS numJefes
+FROM employee
+INNER JOIN employee AS jefes
+    ON employee.superior_emp_id = jefes.emp_id;
+
+/*--Numeros de trabajadores sin jefe--*/
+SELECT COUNT(employee.emp_id) AS numTrabajSinJefe
+FROM employee
+LEFT JOIN employee AS jefes
+    ON employee.superior_emp_id = jefes.emp_id
+WHERE jefes.emp_id IS NULL;
+
+
+
+
+
