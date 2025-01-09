@@ -55,3 +55,53 @@ FROM employee
 INNER JOIN employee AS jefes
     ON employee.superior_emp_id = jefes.emp_id;
 	/*Solo se cumple la condicion, en cambio con en el left mostraba todos los empleados+los que tenian jefe*/
+
+/*--Cuanto clientes tengo--*/
+SELECT COUNT(*) AS clientes
+FROM customer;
+/*Clientes individuales*/
+SELECT COUNT(*) AS clientesIndividuales
+FROM individual; 
+/*Clientes empresas*/
+SELECT COUNT(*) AS empresas
+FROM business; 
+
+/*--Cuantas cuentas tengo--*/
+SELECT count(*) AS totalCuentas
+FROM account; 
+
+/*--Suma del balance--*/
+SELECT SUM(avail_balance) AS sumaBalance
+FROM account; 
+
+/*--Media del balance--*/
+SELECT AVG(avail_balance) AS mediaBalance
+FROM account; 
+
+/*--Cuenta con mayor balance--*/
+SELECT MAX(avail_balance) AS cuentaConBalanceMay
+FROM account; 
+
+/*--Cuantos epleados hay en cada departamento, hay que sacar el nombre del departamos y num de empleados por departamento--*/
+SELECT department.`name` AS nombreDepart ,COUNT(*) AS numTrabajadores
+FROM employee
+INNER JOIN department
+	ON employee.dept_id = department.dept_id
+GROUP BY employee.dept_id;
+
+/*--Empleados contratados en el 2002--*/
+SELECT department.`name` AS nombreDepart ,COUNT(*) AS numTrabajadores
+FROM employee
+INNER JOIN department
+	ON employee.dept_id = department.dept_id
+WHERE YEAR(start_date) = 2002
+GROUP BY employee.dept_id
+ORDER BY numTrabajadores;
+
+/*--Departamentos con años y numeros de trabajadores--*/
+SELECT department.`name` AS nombreDepart, YEAR(start_date),COUNT(*) AS numTrabajadores
+FROM employee
+INNER JOIN department
+	ON employee.dept_id = department.dept_id
+GROUP BY department.dept_id, YEAR(start_date)
+ORDER BY nombreDepart;
