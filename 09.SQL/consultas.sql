@@ -105,3 +105,11 @@ INNER JOIN department
 	ON employee.dept_id = department.dept_id
 GROUP BY department.dept_id, YEAR(start_date)
 ORDER BY nombreDepart;
+
+/*--Todos los departamentos que tienen mas de 2 empleados--*/
+SELECT department.`name` AS nombreDepart ,COUNT(*) AS numTrabajadores
+FROM employee
+INNER JOIN department
+	ON employee.dept_id = department.dept_id
+GROUP BY employee.dept_id
+HAVING COUNT(*)>2;
