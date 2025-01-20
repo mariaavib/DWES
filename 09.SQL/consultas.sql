@@ -129,3 +129,13 @@ LEFT JOIN employee AS jefes
 WHERE jefes.emp_id IS NULL;
 
 /*--Listado de clientes que han nacido antes del 1970--*/
+
+/*--Usando la base de datos del banco, muestra todos los datos de los clientes con las personas autorizadas de la empresa (officer) .--*/
+SELECT officer.fname,business.`name`,customer.cust_id,individual.fname
+FROM officer
+INNER JOIN business
+ON officer.cust_id = business.cust_id
+RIGHT JOIN customer
+ON customer.cust_id = business.cust_id
+LEFT JOIN individual
+ON customer.cust_id = individual.cust_id;
