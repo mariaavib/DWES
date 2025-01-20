@@ -6,15 +6,14 @@
     try {
         $resultado = $conexion->query($sql);
         $datos = [];
-
-        while ( $fila = $resultado->fetch_assoc()) {
-            $datos[]=$fila;
+        while ($fila = $resultado->fetch_assoc()) {
+            $datos[] = $fila;
         }
 
-        echo json_encode($datos); 
-
-    } catch (mysqli_sql_exception $e) {
-        echo json_encode(['error' => 'error']);
+        echo json_encode($datos);
+    } catch (Exception $e) {
+        echo json_encode(['error' => $e->getMessage()]);
     }
+
     exit();
 ?>

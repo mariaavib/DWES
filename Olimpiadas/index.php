@@ -105,15 +105,16 @@
                 padding: 10px;
             }
         }
-
     </style>
 </head>
 <body>
+    <!--Primer formulario-->
     <form>
         <select id="clases">
             <option value="none" selected disabled>Selecciona una clase</option>
         </select>
     </form>
+    <!--Segundo formulario-->
     <form id="formulario">
         
     </form>
