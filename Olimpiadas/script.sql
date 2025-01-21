@@ -10,14 +10,14 @@ CREATE TABLE Alumnos (
     CONSTRAINT pk_alumnos PRIMARY KEY (idAlumno) 
 );
 
-CREATE TABLE Inscripciones (
-    idInscripciones TINYINT AUTO_INCREMENT,
-    idAlumno TINYINT,
-    idPruebas TINYINT,
-    CONSTRAINT pk_inscripciones PRIMARY KEY (idInscripciones), 
-    CONSTRAINT fk_alumnos FOREIGN KEY (idAlumno) REFERENCES Alumnos(idAlumno), 
-    CONSTRAINT fk_pruebas FOREIGN KEY (idPruebas) REFERENCES Pruebas(idPruebas) 
-);
+    CREATE TABLE Inscripciones (
+        idInscripciones TINYINT AUTO_INCREMENT,
+        idAlumno TINYINT,
+        idPruebas TINYINT,
+        CONSTRAINT pk_inscripciones PRIMARY KEY (idInscripciones), 
+        CONSTRAINT fk_alumnos FOREIGN KEY (idAlumno) REFERENCES Alumnos(idAlumno), 
+        CONSTRAINT fk_pruebas FOREIGN KEY (idPruebas) REFERENCES Pruebas(idPruebas) 
+    );
 
 
 
