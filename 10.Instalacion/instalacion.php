@@ -6,6 +6,7 @@
             idAdmin TINYINT unsigned auto_increment, 
             nombre VARCHAR(30) NOT NULL, 
             correo VARCHAR(50) NOT NULL UNIQUE,
+            contrasenia VARCHAR(255) NOT NULL,
             PRIMARY KEY (idAdmin)  -- Aseguramos que idAdmin sea la clave primaria
         );
 
@@ -94,9 +95,8 @@
     if($conexion->multi_query($sql)){
         echo 'Tablas creadas correctamente';
     }else{
-        echo 'Error al crear las tablas: ' . $conexion->error;
+        echo 'Error al crear las tablas: '.$conexion->error;
     }
-
 
     $conexion->close();
 ?>
