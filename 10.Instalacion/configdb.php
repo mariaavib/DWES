@@ -1,7 +1,7 @@
 <?php
     /*Local*/
-    $servidor = '';
-    $usuario = '';
+    $servidor = 'localhost';
+    $usuario = 'root';
     $contraseña = '';
-    $basedatos= '';
+    $basedatos= 'libros';
 ?>
