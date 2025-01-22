@@ -1,7 +1,7 @@
 <?php
     /*Local*/
-    $servidor = 'localhost';
-    $usuario = 'root';
+    $servidor = '';
+    $usuario = '';
     $contraseña = '';
-    $basedatos= 'appLibros2';
+    $basedatos= '';
 ?>

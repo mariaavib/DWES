@@ -93,7 +93,7 @@
     ';
 
     if($conexion->multi_query($sql)){
-        echo 'Tablas creadas correctamente';
+        header("Location: formulario.html");
     }else{
         echo 'Error al crear las tablas: '.$conexion->error;
     }

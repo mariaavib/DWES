@@ -1,25 +1,26 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
     <title>Crear usuarios</title>
 </head>
 <body>
-    <form action="procesarFormulario.php" method="post" onsubmit="validarContrasenas()">
+    <form action="recogerForm.php" method="POST" onsubmit="return validarFormulario(event)">
         <label for="nombre">Nombre de usuario: </label>
         <input type="text" id="nombre" name="nombre" required>
 
-        <label for="correo">Correo electrónico:</label>
-        <input type="email" id="correo" name="correo" required>
+        <label for="correo">Correo:</label>
+        <input type="text" id="correo" name="correo" required>
 
         <label for="contrasenia">Contraseña:</label>
         <input type="password" id="contrasenia" name="contrasenia" required>
 
-        <label for="repetirContrasenia">Repite la contraseña:</label>
-        <input type="password" id="repetirContrasenia" name="repetirContrasenia" required>
+        <label for="contraseniaRepetida">Repite la contraseña:</label>
+        <input type="password" id="contraseniaRepetida" name="contraseniaRepetida" required>
 
-        <input type="submit" value="Crear usuario">
+        <button type="submit">Crear usuario</button>
     </form>
 </body>
 <script src="validarForm.js"></script>
