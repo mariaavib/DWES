@@ -1,6 +1,6 @@
 <?php
     /*Local*/
-    $servidor = 'esvirgua.com';
+    $servidor = '';
     $usuario = '';
     $contraseña = '';
     $basedatos= '';

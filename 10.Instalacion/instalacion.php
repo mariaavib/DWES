@@ -6,6 +6,7 @@
             idAdmin TINYINT unsigned auto_increment, 
             nombre VARCHAR(30) NOT NULL, 
             correo VARCHAR(50) NOT NULL UNIQUE,
+            contrasenia VARCHAR(20) NOT NULL,
             PRIMARY KEY (idAdmin)  -- Aseguramos que idAdmin sea la clave primaria
         );
 
