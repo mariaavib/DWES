@@ -7,7 +7,6 @@
     $contrasenia = $_POST['contrasenia'];
     $rool = $_POST['rool'];
 
-
     //Consulta para insertar los datos en la tabla Administradores
     $sql = "INSERT INTO Administradores (nombre, correo, contrasenia, rool) VALUES ('$nombre', '$correo', '$contrasenia', '$rool')";
     

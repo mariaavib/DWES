@@ -139,3 +139,15 @@ RIGHT JOIN customer
 ON customer.cust_id = business.cust_id
 LEFT JOIN individual
 ON customer.cust_id = individual.cust_id;
+
+/**** BDD Reconocimiento*/
+/*Diferencias*/
+SELECT COUNT(idAlumRecibe)
+FROM reconocimiento
+
+/*****Devuelve 9 ya que solo cuenta las filas que no son null*/
+
+SELECT COUNT(*)
+FROM reconocimiento 
+
+/*****Devuelve 10 ya que cuenta todas las filas*/
