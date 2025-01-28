@@ -1,0 +1,22 @@
+
+PRIMERA PRUEBA (17/01/25)
+
+Mostrar el nombre del alumno que envía y del alumno que recibe el reconocimiento, además del texto del reconocimiento (descripción). 
+Añadir una orden para que un alumno solo pueda recibir un reconocimiento (esto se hace en local)
+Añadir una orden para que el alumno pueda volver a recibir varios reconocimientos (esto se hace en local).
+Mostrar los nombres de los alumnos que no han enviado reconocimientos.
+Mostrar cuántos alumnos han enviado reconocimientos.
+Piensa alguna consulta con funciones de agregado (consultas resumen). Pon el enunciado y la solución
+Puedes añadir más consultas. Pon el enunciado y la solución
+
+
+
+SEGUNDA PRUEBA (20/01/25)
+
+En este caso, voy a modificar la base de datos poniendo NULL al alumno que recibe reconocimiento, si este valor no se rellena, es que el reconocimiento es para la clase.
+
+Mostrar el nombre del alumno que envía y del alumno que recibe el reconocimiento, además del texto del reconocimiento (descripción). Explicar esta consulta con un comentario.
+Mostrar cuántos alumnos han recibido reconocimientos. Explicar esta consulta con un comentario.
+Usando la base de datos del banco, muestra todos los datos de los clientes con las personas autorizadas de la empresa (officer). Tienes que partir de la tabla "officer" y explicar cada paso (qué devuelven las consultas). 
+Esta base de datos está como material en Classroom “MAT-00.02 Base datos Banco”.
+Puedes añadir más consultas de la base de datos Reconocimientos. Pon el enunciado y la solución.

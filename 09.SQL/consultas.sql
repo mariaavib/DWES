@@ -139,3 +139,26 @@ RIGHT JOIN customer
 ON customer.cust_id = business.cust_id
 LEFT JOIN individual
 ON customer.cust_id = individual.cust_id;
+
+/**** BDD Reconocimiento*/
+/*Diferencias*/
+SELECT COUNT(idAlumRecibe)
+FROM reconocimiento
+
+/*****Devuelve 9 ya que solo cuenta las filas que no son null*/
+
+SELECT COUNT(*)
+FROM reconocimiento 
+
+/*****Devuelve 10 ya que cuenta todas las filas*/
+
+/****** CORRECIÓN PRUEBAS *******/
+/**** BDD Banco*/
+CREATE UNIQUE INDEX ix_recibe
+DROP INDEX ix_recibe 
+
+/**** BDD Reconocimiento*/
+SELECT alumEnvia.nombre AS nombreAlumEnvia, alumRecibe.nombre AS nombreAlumRecibe, reconocimiento.descripcion 
+FROM reconocimiento 
+INNER JOIN alumno alumEnvia ON reconocimiento.idAlumEnvia = alumEnvia.idAlumno
+LEFT JOIN alumno alumRecibe ON reconocimiento.idAlumRecibe = alumRecibe.idAlumno;
