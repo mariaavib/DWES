@@ -1,5 +1,9 @@
 <?php
     require_once("conexion.php");
+    require_once("extraerAmbitos.php");
+
+    $objAmbitos = new ExtraerAmbitos($conexion);
+    $ambitos = $objAmbitos->extraer();
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -12,9 +16,9 @@
     <form action="recogerForm.phh" method="POST">
         <?php
             foreach ($ambitos as $indice => $valor) {
-                echo "<input type='checkbox' name='ambitos[]' value='".$ambito['idAmbito']."'>".$ambito['nombre']."<br>";
+                echo "<input type='checkbox' name='ambitos[]' value='".$valor["idAmbito"]."'>".$valor["nombre"]."<br>";
             }
         ?>
     </form>
 </body>
-</html> 
+</html>

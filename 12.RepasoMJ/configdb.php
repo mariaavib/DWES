@@ -3,5 +3,5 @@
     $servidor = 'localhost';
     $usuario = 'root';
     $contraseña = '';
-    $basedatos= 'applibros2';
+    $basedatos= 'minijuegos';
 ?>

@@ -1,7 +1,7 @@
 <?php
     /*Local*/
     $servidor = 'localhost';
-    $usuario = 'root';
-    $contraseña = '';
-    $basedatos= 'applibros2';
+    $usuario = 'user_pc'; /*usuario con todos lor privilegios*/
+    $contraseña = '123456';
+    $basedatos= 'libros';
 ?>

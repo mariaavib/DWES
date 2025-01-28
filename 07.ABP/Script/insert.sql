@@ -1,5 +1,3 @@
-
-
 -- INSERT en Cursos
 INSERT INTO Cursos (idCurso, nombre) VALUES
 ('1Inf', '1º Infantil'),
@@ -9,9 +7,9 @@ INSERT INTO Cursos (idCurso, nombre) VALUES
 ('1BachL', '1º Bachillerato Letras'),
 ('2BachL', '2º Bachillerato Letras'),
 ('1DAW', '1º Desarrollo de Aplicaciones Web'),
-('2DAW', '2º Desarrollo de Aplicaciones Web'),
-('1SMR', '1º Sistemas Microinformáticos y Redes'),
-('2SMR', '2º Sistemas Microinformáticos y Redes'),
+('2DAW', '2º Desarrollo de Aplicaciones Weos y Redes'),
+('2SMR', '2º Sistemas Microinformáb'),
+('1SMR', '1º Sistemas Microinformáticticos y Redes'),
 ('1EVA', '1º Electromecánica de Vehiculos Automoviles'),
 ('2EVA', '2º Electromecánica de Vehiculos Automoviles'),
 ('1GA', '1º Gestión Administrativa'),
@@ -168,17 +166,14 @@ VALUES
 -- INSERT CLASES ASIGNATURAS
 INSERT INTO clases_asignaturas (idCurso, letraClase, idAsignatura)
 VALUES
-('1Inf', 'A', 1),
-('1Inf', 'A', 2),
+('1Inf', 'A', 1),  
+('1Inf', 'A', 2),  
 ('1BachC', 'A', 3), 
 ('1BachC', 'A', 7),
-('1BachC', 'A', 8),
+('1BachC', 'A', 8), 
 ('1BachL', 'A', 4), 
-('1BachL', 'A', 9),
-('1DAW', 'A', 5),
-('1DAW', 'A', 25),
+('1BachL', 'A', 9), 
+('1DAW', 'A', 5),  
+('1DAW', 'A', 25), 
 ('1SMR', 'A', 6),  
-('1SMR', 'A', 23),
-('1EVA', 'A', 27),
-('1GA', 'C', 28); 
-
+('1SMR', 'A', 23);

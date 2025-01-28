@@ -15,14 +15,14 @@
 
         $crearUsuario = "CREATE USER '$nombre'@'localhost' IDENTIFIED BY '$contrasenia';";
         if ($rool == 'admin') {
-            $crearUsuario .= "GRANT ALL PRIVILEGES ON *.* TO '$nombre'@'localhost' WITH GRANT OPTION;";
+            $crearUsuario = $crearUsuario . "GRANT ALL PRIVILEGES ON *.* TO '$nombre'@'localhost' WITH GRANT OPTION;";
         }else{
-            $crearUsuario .="GRANT SELECT, INSERT, UPDATE, DELETE ON libros.* TO '$nombre'@'localhost';";
+            $crearUsuario = $crearUsuario . "GRANT SELECT, INSERT, UPDATE, DELETE ON libros.* TO '$nombre'@'localhost';";
         }
-        $crearUsuario .= "FLUSH PRIVILEGES;";
         //Ejecutar la consulta para crear el usuario con privilegios
         if($conexion->multi_query($crearUsuario)){
             echo "Usuario administrador creado correctamente.<br>";
+            header("Location: http://localhost/DWES%20GIT/DWES/07.ABP/GestionLibros/formularioV2.php");
 
             //Eliminar el archivo de instalación si el usuario se crea correctamente
             if(unlink("instalacion.php")) {
