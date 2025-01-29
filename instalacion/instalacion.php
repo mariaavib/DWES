@@ -1,13 +1,26 @@
 <?php
     require_once('./conexion.php');
 
+    /*Comprobar si existe la tabla administradores */
+    $consulta = "SHOW TABLES LIKE 'Administradores';";
+    $resultado = $conexion -> query($consulta);
+    $consulta2 = "SELECT * FROM Administradores WHERE idAdmin > 0;";
+    $resultado2 = $conexion -> query($consulta2);
+
+    if($resultado->num_rows>0 && $resultado2->num_rows<1){
+        header("Location: formulario.html");
+    }else{
+        if($resultado->num_rows>0 && $resultado2->num_rows>0){
+            header("Location: ../borrar.php");
+        }
+    }
+
     $sql = '
         CREATE TABLE Administradores (
             idAdmin TINYINT unsigned auto_increment, 
             nombre VARCHAR(30) NOT NULL, 
             correo VARCHAR(50) NOT NULL UNIQUE,
             contrasenia VARCHAR(255) NOT NULL,
-            rool VARCHAR(20) NOT NULL,
             PRIMARY KEY (idAdmin)  
         );
 
@@ -15,7 +28,7 @@
             idTutor TINYINT unsigned auto_increment,
             nombre VARCHAR(50) NOT NULL, 
             correo VARCHAR(100) NOT NULL UNIQUE,
-            PRIMARY KEY (idTutor)  -- Aseguramos que idTutor sea la clave primaria
+            PRIMARY KEY (idTutor)  
         );
 
         CREATE TABLE Editoriales (

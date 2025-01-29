@@ -1,7 +1,20 @@
 <?php
     require_once('./conexion.php');
-    //Comprobar que no existen las tablas, si no existen se crean, despues comprobar si ya existe un usuario administrador
-    $tablas = ["Administradores", "Tutores", "Editoriales", "Cursos", "Clases", "Asignaturas", "clases_asignaturas", "Libros","Reservas", "Reservas_Libros"]
+
+    /*Comprobar si existe la tabla administradores */
+    $consulta = "SHOW TABLES LIKE 'Administradores';";
+    $resultado = $conexion -> query($consulta);
+    $consulta2 = "SELECT * FROM Administradores WHERE idAdmin > 0;";
+    $resultado2 = $conexion -> query($consulta2);
+
+    if($resultado->num_rows>0 && $resultado2->num_rows<1){
+        header("Location: formulario.html");
+    }else{
+        if($resultado->num_rows>0 && $resultado2->num_rows>0){
+            header("Location: ../borrar.php");
+        }
+    }
+
     $sql = '
         CREATE TABLE Administradores (
             idAdmin TINYINT unsigned auto_increment, 
@@ -15,7 +28,7 @@
             idTutor TINYINT unsigned auto_increment,
             nombre VARCHAR(50) NOT NULL, 
             correo VARCHAR(100) NOT NULL UNIQUE,
-            PRIMARY KEY (idTutor)  -- Aseguramos que idTutor sea la clave primaria
+            PRIMARY KEY (idTutor)  
         );
 
         CREATE TABLE Editoriales (
