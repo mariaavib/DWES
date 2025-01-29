@@ -13,7 +13,7 @@
 
         echo "Usuario creado correctamente.<br>";     
         //Ejecutar la consulta para crear el usuario con privilegios
-        header("Location: http://localhost/DWES%20GIT/DWES/10.Instalacion/appLibros/formularioV2.php");
+        header("Location: https://20.2daw.esvirgua.com/10.InstalacionServidor/appLibros/formularioV2.php");
         exit();
         
     }else {
