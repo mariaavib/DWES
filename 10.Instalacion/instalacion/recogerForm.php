@@ -15,7 +15,7 @@
         //Ejecutar la consulta para crear el usuario con privilegios
         header("Location: http://localhost/DWES_git/DWES/10.Instalacion/appLibros/formularioV2.php");
 
-        //Eliminar el archivo de instalación si el usuario se crea correctamente
+        //Tengo que borrar toda la carpeta instalacion y el borrar.php lo tengo que tener fuera de la carpeta instalacion                                      
         if(unlink("instalacion.php")) {
             echo "Archivo de instalación eliminado correctamente.<br>";
         }else{
