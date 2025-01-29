@@ -1,7 +1,7 @@
 <?php
     require_once('./conexion.php');
     //Comprobar que no existen las tablas, si no existen se crean, despues comprobar si ya existe un usuario administrador
-    
+    $tablas = ["Administradores", "Tutores", "Editoriales", "Cursos", "Clases", "Asignaturas", "clases_asignaturas", "Libros","Reservas", "Reservas_Libros"]
     $sql = '
         CREATE TABLE Administradores (
             idAdmin TINYINT unsigned auto_increment, 
