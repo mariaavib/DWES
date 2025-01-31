@@ -7,6 +7,7 @@
         }
 
         public function extraer(){
+            //Consulta para seleccionar los ambitos 
             $sql = 'SELECT * FROM ambitos;';
             $resultado = $this->conexion->query($sql);    
 

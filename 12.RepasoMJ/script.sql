@@ -35,3 +35,9 @@ INSERT INTO minijuegos(nombre,idAmbito) VALUES
 ('Shooper Mario', 3),
 ('Decisiones de vida', 5),
 ('Democratic City', 2);
+
+-- Consulta para extraer ek ambito seleccionado y el minijuego
+SELECT ambitos.nombre AS NombreAmbito, minijuegos.nombre AS NombreMinijuego
+FROM ambitos
+INNER JOIN minijuegos
+ON ambitos.idAmbito = minijuegos.idAmbito;
