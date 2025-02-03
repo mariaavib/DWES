@@ -4,7 +4,8 @@ require_once("conexion.php");
 $ambitosRecogidos = [];
 $minijuegos = [];
 
-// Mostrar los nombres de los ámbitos seleccionados y sus minijuegos
+
+//Mostrar los nombres de los ámbitos seleccionados y sus minijuegos
 if (isset($_POST["ambitos"])){
     foreach ($_POST["ambitos"] as $idAmbito){
         $sql = "SELECT nombre FROM ambitos WHERE idAmbito = '$idAmbito'";
