@@ -1,4 +1,0 @@
-<?php
-    //Recoger datos
-    
-?>

@@ -13,12 +13,14 @@
     <title>Formulario ambito</title>
 </head>
 <body>
-    <form action="recogerForm.phh" method="POST">
+    <form action="recogerForm.php" method="POST">
+        <h1>Selecciona los ambitos que quieras: </h1>
         <?php
             foreach ($ambitos as $indice => $valor) {
                 echo "<input type='checkbox' name='ambitos[]' value='".$valor["idAmbito"]."'>".$valor["nombre"]."<br>";
             }
         ?>
+        <input type="submit" value="Enviar">
     </form>
 </body>
-</html>4
+</html>
