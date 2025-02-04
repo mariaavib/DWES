@@ -1,7 +1,5 @@
 <?php
 require_once("conexion.php");
-
-$ambitosRecogidos = [];
 $minijuegos = [];
 
 
@@ -13,7 +11,7 @@ if (isset($_POST["ambitos"])){
         while($ambito = mysqli_fetch_array($resultado)){
             echo "Ámbito seleccionado: " . $ambito['nombre'] . "<br>";
 
-            //Minijuegos correspondientes al ámbito
+            //Minijuegos correspondientes a los ambitos seleccionados
             $sqlMinijuegos = "SELECT nombre FROM minijuegos WHERE idAmbito = '$idAmbito'";
             $resultadoMinijuegos = mysqli_query($conexion, $sqlMinijuegos);
             while ($minijuego = mysqli_fetch_array($resultadoMinijuegos)){

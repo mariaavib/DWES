@@ -6,7 +6,7 @@
         private $basedatos;
         public $conexion;
 
-        function __construct(){
+        public function __construct() {
             require_once(CONFIG.'configdb.php');
 
             $this->servidor = SERVIDOR;
@@ -24,7 +24,5 @@
             $controlador = new mysqli_driver();
             $controlador -> report_mode = MYSQLI_REPORT_OFF;
         }
-
-
     }
 ?>
