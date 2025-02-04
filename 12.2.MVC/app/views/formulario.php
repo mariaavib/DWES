@@ -10,6 +10,7 @@
     <h1>Selecciona los ambitos</h1>
     <form action="index.php?c=Ambitos&m=mostrar" method="post" onsubmit="return validarFormulario()">
         <?php
+            //Recorre cada elemento del array $datos
             foreach ($datos as $indice => $valor) {
                 echo '<input type="checkbox" name="ambitos[]" value="'.$valor['idAmbito'].'">'.$valor['nombre'].'<br>';
             }           
