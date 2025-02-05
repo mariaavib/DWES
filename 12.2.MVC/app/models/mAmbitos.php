@@ -26,10 +26,8 @@
                     while($fila = $resultado->fetch_array()){
                         $datos[$fila['nombreAmbito']][] = $fila['nombreMinijuego']; 
                     }
-
                 }   
             }
-            
             return $datos;    
             
         }

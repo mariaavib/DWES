@@ -13,13 +13,16 @@
             foreach ($datos as $indice => $valor){
                 echo '<h2>'.$indice.': </h2>';
                 echo '<ul>';
-                //Este recorre cada elemento del array $valor['minijuegos'] y muestra el $valor2 que es el nombre del minijuego
-                foreach ($valor as $valor2){
-                    echo '<li>'.$valor2.'</li>';
-                } 
+                if(empty($valor)){
+                    echo '<li>No hay minijuegos para este ámbito.</li>';
+                } else {
+                    //Este recorre cada elemento del array $valor['minijuegos'] y muestra el $valor2 que es el nombre del minijuego
+                    foreach ($valor as $valor2){
+                        echo '<li>'.$valor2.'</li>';
+                    } 
+                }
                 echo '</ul>';
             } 
-
          ?>
         <a href="index.php">VOLVER</a>
     </div>
