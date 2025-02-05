@@ -16,7 +16,7 @@
         }
 
         public function cogerMinijuegos($ambitosSeleccionados){
-            $datos = []; // Array para almacenar los ámbitos y sus minijuegos
+            $datos = []; //Array para almacenar los ámbitos y sus minijuegos
 
             if(!empty($ambitosSeleccionados)){
                 foreach ($ambitosSeleccionados as $idAmbito){
@@ -45,7 +45,9 @@
                     }
                 }
             }
-            
+            echo '<br>';
+            print_r($datos);
+            echo '<br><br>';
             return $datos;
         }
     }
