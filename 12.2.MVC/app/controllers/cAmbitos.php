@@ -10,12 +10,14 @@
 
         public function inicio(){
             $this->vista = 'formulario';
-            return $this-> objModelo -> cogerAmbitos();    
+            $datos =  $this-> objModelo -> cogerAmbitos();    
+            return $datos;
         }
 
         public function mostrar(){
             $this->vista = 'mostrarMinijuegos';
-            return $this -> objModelo -> cogerMinijuegos($_POST['ambitos']);
+            $datos = $this -> objModelo -> cogerMinijuegos($_POST['ambitos']);
+            return $datos;
         }
     }
 ?>

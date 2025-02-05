@@ -34,7 +34,15 @@ INSERT INTO minijuegos(nombre,idAmbito) VALUES
 ('Viaje entre culturas', 4), 
 ('Shooper Mario', 3),
 ('Decisiones de vida', 5),
-('Democratic City', 2);
+('Democratic City', 2),
+('Igualdad en el trabajo', 1),
+('Elige tu futuro', 2),
+('Economía verde', 3),
+('Desarrollo sin fronteras', 3),
+('Viaje cultural', 4),
+('Lenguas y tradiciones', 4),
+('Derechos para todos', 5),
+('Lucha por la justicia', 5);
 
 -- Consulta para extraer ek ambito seleccionado y el minijuego
 SELECT ambitos.nombre AS NombreAmbito, minijuegos.nombre AS NombreMinijuego

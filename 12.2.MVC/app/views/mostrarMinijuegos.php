@@ -10,15 +10,16 @@
     <div>
         <?php 
             //Recorre cada elemento del array $datos, $valor es el valor que hay dentro de $datos que es un array asociativo y los indices son ambito y minijuegos
-            foreach ($datos as $valor){
-                echo '<h2>'.$valor["ambito"].': </h2>';
+            foreach ($datos as $indice => $valor){
+                echo '<h2>'.$indice.': </h2>';
                 echo '<ul>';
                 //Este recorre cada elemento del array $valor['minijuegos'] y muestra el $valor2 que es el nombre del minijuego
-                foreach ($valor["minijuegos"] as $valor2){
+                foreach ($valor as $valor2){
                     echo '<li>'.$valor2.'</li>';
                 } 
                 echo '</ul>';
             } 
+
          ?>
         <a href="index.php">VOLVER</a>
     </div>
