@@ -12,7 +12,7 @@
         <?php
             //Recorre cada elemento del array $datos
             foreach ($datos as $indice => $valor) {
-                echo '<input type="checkbox" name="ambitos[]" value="'.$valor['idAmbito'].'">'.$valor['nombre'].'<br>';
+                echo '<input type="radio" name="ambitos" value="'.$valor['idAmbito'].'">'.$valor['nombre'].'<br>';
             }           
         ?>
         <input type="checkbox" name="terminos" id="terminos"><strong>Acepta los términos</strong>
@@ -20,8 +20,8 @@
     </form>
     <script>
         
-        function validarFormulario() {
-            let checkbox = document.querySelectorAll('input[name="ambitos[]"]:checked');
+        /*function validarFormulario() {
+            let checkbox = document.querySelectorAll('input[name="ambitos"]:checked');
             
             if (checkbox.length === 0) {
                 alert("Por favor, selecciona al menos un ámbito.");
@@ -36,7 +36,7 @@
             
 
             return true;
-        }
+        }*/
     </script>
 </body>
 </html>

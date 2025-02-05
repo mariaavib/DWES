@@ -8,7 +8,7 @@ if (isset($_POST["ambitos"])){
     foreach ($_POST["ambitos"] as $idAmbito){
         $sql = "SELECT nombre FROM ambitos WHERE idAmbito = '$idAmbito'";
         $resultado = mysqli_query($conexion, $sql);
-        while($ambito = mysqli_fetch_array($resultado)){
+        while($ambito = mysqli_fetch_array($resultado)){//Recorre cada fila del resultado de la consulta
             echo "Ámbito seleccionado: " . $ambito['nombre'] . "<br>";
 
             //Minijuegos correspondientes a los ambitos seleccionados
