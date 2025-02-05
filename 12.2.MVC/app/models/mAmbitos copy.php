@@ -16,7 +16,10 @@
         }
 
         public function cogerMinijuegos($ambitosSeleccionados){
-            
+            SELECT minijuegos.nombre AS nombreMinijuego, ambitos.nombre AS nombreAmbitos 
+FROM minijuegos
+INNER JOIN ambitos 
+	ON minijuegos.idAmbito = ambitos.idAmbito;
         }
     }
 ?>
