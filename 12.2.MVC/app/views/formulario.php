@@ -30,7 +30,7 @@
 
             let checkboxTerminos = document.getElementById('terminos');
             if (!checkboxTerminos.checked) {
-                alert("Debes aceptar los términos y condiciones.");
+                alert("Debes aceptar los términos.");
                 return false;
             }
             

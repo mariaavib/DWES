@@ -20,4 +20,5 @@
         $datos = $objControlador ->{$_GET['m']}();
     }
     require_once(RUTA_VISTAS.$objControlador->vista.'.php');
+    
 ?>
