@@ -8,10 +8,6 @@
             $this->conexion= $objConexion->conexion;
         }
 
-        public function numAmbitos(){
-            
-        }
-
         public function recogerAmbitos($nombreAmbito){
             //print_r($nombreAmbito);
             $sql = 'INSERT INTO ambitos(nombre) VALUES (?)';
@@ -24,7 +20,7 @@
             
             $stmt->close();
 
-            return "Ambitos guardados correctamentes";
+            return 'c';
         }
 
     }

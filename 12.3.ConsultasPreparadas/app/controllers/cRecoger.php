@@ -1,5 +1,5 @@
 <?php
-    class CAmbitos{
+    class CRecoger{
         public $objModelo;
         public $vista;
 
@@ -8,14 +8,19 @@
             $this->objModelo = new MRecoger();
         }
 
-        public function numAmbitos(){
+        public function predeterminado(){
             $this->vista = 'numAmbitos';
-            $datos = $this-> objModelo -> numAmbitos($_POST["nombAmbito"]);   
-            return $datos; 
+            return true; 
         }
 
-        public function añadir(){
-            $this->vista = 'añadirAmbito';
+        public function numAmbitos(){
+            $this->vista = 'addAmbito';
+            $numAmbitos = $_POST["numAmbitos"];
+            return $numAmbitos; 
+        }
+
+        public function add(){
+            $this->vista = 'addAmbito';
             $datos =  $this-> objModelo -> recogerAmbitos($_POST["nombAmbito"]);    
             return $datos;
         }

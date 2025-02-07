@@ -7,5 +7,5 @@
 
     //Rutas por defecto
     define('CONTROLADOR_DEF', "Recoger");
-    define('METODO_DEF', "numAmbitos");
+    define('METODO_DEF', "predeterminado");
 ?>
