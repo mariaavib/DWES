@@ -10,7 +10,7 @@
 
         public function recogerAmbitos(){
             $nombreAmbito = $_POST["nombAmbito"];
-            print_r($nombreAmbito);
+            //print_r($nombreAmbito);
             $sql = 'INSERT INTO ambitos(nombre) VALUES (?)';
             $stmt = $this->conexion->prepare($sql);
             $stmt->bind_param('s',$nombre);
