@@ -15,15 +15,28 @@
 
         public function numAmbitos(){
             $this->vista = 'addAmbito';
-            $numAmbitos = $_POST["numAmbitos"];
-            return $numAmbitos; 
+
+            if (isset($_POST["numAmbitos"]) && $_POST["numAmbitos"] > 0){
+                $numAmbitos = $_POST["numAmbitos"];
+                return $numAmbitos; 
+            }else{
+                $this->vista = 'numAmbitos';
+                echo "Ingresa un número válido de ámbitos.";
+                return false;
+            }
         }
 
         public function add(){
             $this->vista = 'addAmbito';
-            $datos =  $this-> objModelo -> recogerAmbitos($_POST["nombAmbito"]);    
-            return $datos;
-        }
 
+            if (isset($_POST["nombAmbito"]) && !empty($_POST["nombAmbito"])){
+                $datos = $this->objModelo->recogerAmbitos($_POST["nombAmbito"]);
+                return $datos;
+            }else{
+                echo "Completa todos los campos";
+                return false;
+            }
+        }
+        
     }
 ?>
