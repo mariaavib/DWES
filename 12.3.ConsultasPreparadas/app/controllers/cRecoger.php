@@ -15,7 +15,8 @@
 
         public function numAmbitos(){
             $this->vista = 'addAmbito';
-
+            //Validar que se ha introducido valor en el formulario
+            //***Podria validar que sea un numero
             if (isset($_POST["numAmbitos"]) && $_POST["numAmbitos"] > 0){
                 $numAmbitos = $_POST["numAmbitos"];
                 return $numAmbitos; 
