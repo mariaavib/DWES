@@ -30,12 +30,16 @@
         public function add(){
             $this->vista = 'addAmbito';
 
-            if (isset($_POST["nombAmbito"]) && !empty($_POST["nombAmbito"])){
+            if (isset($_POST["nombAmbito"])){
+                foreach($_POST["nombAmbito"] as $valor){
+                    //Trim quita los espacios
+                    if(trim($valor)==''){
+                        echo "Completa todos los campos";
+                        return 'incorrecto';
+                    }
+                }
                 $datos = $this->objModelo->recogerAmbitos($_POST["nombAmbito"]);
                 return $datos;
-            }else{
-                echo "Completa todos los campos";
-                return false;
             }
         }
         

@@ -9,13 +9,22 @@
 <body>
     <form action="index.php?c=Recoger&m=add"  method="post">
         <?php
+            //Cuando es incorrecto el num de inputs se pierde
             if($datos=='c'){
                 echo 'Insertado correctamente';
             }else{
-                for($i=0;$i<$datos;$i++){
-                    echo '<label for="nombAmbito">Nombre del Ambito:';
-                    echo '<input type="text" name="nombAmbito[]">';
-                    echo '<br>';
+                if($datos=='incorrecto'){
+                    for($i=0;$i<5;$i++){
+                        echo '<label for="nombAmbito">Nombre del Ambito:';
+                        echo '<input type="text" name="nombAmbito[]">';
+                        echo '<br>';
+                    }
+                }else{
+                    for($i=0;$i<$datos;$i++){
+                        echo '<label for="nombAmbito">Nombre del Ambito:';
+                        echo '<input type="text" name="nombAmbito[]">';
+                        echo '<br>';
+                    }
                 }
             }
         ?>
