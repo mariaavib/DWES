@@ -20,11 +20,16 @@
                         echo '<br>';
                     }
                 }else{
-                    for($i=0;$i<$datos;$i++){
-                        echo '<label for="nombAmbito">Nombre del Ambito:';
-                        echo '<input type="text" name="nombAmbito[]">';
-                        echo '<br>';
+                    if($datos=='1062'){
+                        echo 'Entradas duplicadas';
+                    }else{
+                        for($i=0;$i<$datos;$i++){
+                            echo '<label for="nombAmbito">Nombre del Ambito:';
+                            echo '<input type="text" name="nombAmbito[]">';
+                            echo '<br>';
+                        }
                     }
+                    
                 }
             }
         ?>

@@ -9,10 +9,16 @@
         }
 
         public function cogerAmbitos(){
+            $datos = [];
             $sql = 'SELECT * FROM ambitos';
             $resultado = $this->conexion->query($sql);
-
-            return $resultado;
+            while($fila = $resultado->fetch_array()){
+                [] = [
+                    'idAmbito' => $fila['idAmbito'],
+                    'nombre'   => $fila['nombre']
+                ];                              
+            }
+            return $datos;
         }
 
         public function cogerMinijuegos($ambitosSeleccionados){
@@ -29,7 +35,6 @@
                 }   
             }
             return $datos;    
-            
         }
     }
 ?>

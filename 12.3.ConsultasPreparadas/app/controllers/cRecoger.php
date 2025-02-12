@@ -38,6 +38,7 @@
                         return 'incorrecto';
                     }
                 }
+
                 $datos = $this->objModelo->recogerAmbitos($_POST["nombAmbito"]);
                 return $datos;
             }
