@@ -9,13 +9,14 @@
         }
 
         public function inicioUsuario($correo){
+            //Consulta select para seleccionar el correo y la contraseña
             $sql = 'SELECT correo,passw FROM usuario WHERE correo = (?)';
-            $stmt = $this->conexion->prepare($sql);
-            $stmt->bind_param('s', $correo); 
-            $stmt->execute();
-            $stmt->bind_result($correo,$passw);
-            $stmt->fetch();
-            return array('correo'=>$correo, 'passw'=>$passw);
+            $stmt = $this->conexion->prepare($sql); //Analizar la consulta una sola vez
+            $stmt->bind_param('s', $correo); //Decir el tipo de dato que es y asignarle la variable $correo
+            $stmt->execute(); //Ejecutar consulta
+            $stmt->bind_result($correo,$passw); //Vincula las variables a los resultados de la consulta
+            $stmt->fetch(); //Obtiene los resultados de la consulta
+            return array('correo'=>$correo, 'passw'=>$passw); //Devuelve los resultados como un array asociativo
         }
     }
 ?>

@@ -9,8 +9,9 @@
         }
 
         public function inicio(){
+            //Vista principal de formulario
             $this->vista = 'inicio';
-
+            //Si existe email y password la guardo en una variable y envio al modelo inicioUsuario el correo
             if (isset($_POST["email"]) && isset($_POST["passw"])) {
                 $correo = $_POST["email"];
                 $password = $_POST["passw"];
@@ -18,7 +19,9 @@
                 $datos = $this->objModelo->inicioUsuario($correo);
     
                 if ($datos) {
-                    if (password_verify($password,$datos['passw'])) {                  
+                    //Verificar la contraseña
+                    if (password_verify($password,$datos['passw'])) {  
+                        //Aqui se guardaria en $_SESSION el correo despues de verificar la contraseña                
                         $_SESSION['usuario'] = $datos['correo']; 
                         return true;
                     } else {
