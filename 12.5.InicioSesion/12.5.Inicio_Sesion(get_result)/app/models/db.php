@@ -4,7 +4,7 @@
         private $usuario;
         private $passw;
         private $basedatos;
-        private $conexion;
+        public $conexion;
 
         public function __construct(){
             require_once(CONFIG.'configdb.php');
@@ -12,7 +12,7 @@
             $this->servidor = SERVIDOR;
             $this->usuario = USSER;
             $this->passw = PASSW;
-            $this->basedatos = BASEDATOS
+            $this->basedatos = BASEDATOS;
             
             $this->conexion = new mysqli($this->servidor, $this->usuario, $this->passw, $this->basedatos);
 

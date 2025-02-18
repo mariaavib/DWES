@@ -6,6 +6,6 @@
     define('CONFIG', "app/config/");
 
     //Rutas por defecto
-    define('CONTROLADOR_DEF', "");
-    define('METODO_DEF', "");
+    define('CONTROLADOR_DEF', "Usuarios");
+    define('METODO_DEF', "inicio");
 ?>
