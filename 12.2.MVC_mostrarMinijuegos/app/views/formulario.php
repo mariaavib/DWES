@@ -11,7 +11,6 @@
     <form action="index.php?c=Ambitos&m=mostrar" method="post" onsubmit="return validarFormulario()">
         <?php
             //Recorre cada elemento del array $datos
-            
             if(isset($datos['errores'])){
                 echo '<div style="color: red;"><ul>';
                 foreach($datos['errores'] as $error){
