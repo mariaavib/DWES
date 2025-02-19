@@ -9,7 +9,7 @@
 <body>  
     <div>
         <?php 
-            if(empty($valor)){
+            if(empty($datos)){
                 echo '<li>No hay minijuegos para este ámbito.</li>';
             }else{
                 //Recorre cada elemento del array $datos, $valor es el valor que hay dentro de $datos que es un array asociativo y los indices son ambito y minijuegos
@@ -22,7 +22,7 @@
                 }
             }
          ?>
-        <a href="index.php">VOLVER</a>
+        <a href="index.php" class="volver">VOLVER</a>
     </div>
     
 </body>

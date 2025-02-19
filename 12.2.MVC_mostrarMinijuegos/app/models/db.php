@@ -7,10 +7,10 @@
         public $conexion;
 
         public function __construct() {
-            require_once('config/configdb.php');
+            require_once(CONFIG.'configdb.php');
 
             $this->servidor = SERVIDOR;
-            $this->usuario = USUARIO;
+            $this->usuario = USSER;
             $this->passw = PASSW;
             $this->basedatos = BASEDATOS;
 

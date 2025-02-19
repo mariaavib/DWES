@@ -2,5 +2,5 @@
     define('SERVIDOR','');
     define('USSER','');
     define('PASSW','');
-    define('BASEDATOS','');
+    define('BASEDATOS','user2daw_BD2-20');
 ?>

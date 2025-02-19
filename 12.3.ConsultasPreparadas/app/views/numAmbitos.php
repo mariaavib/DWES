@@ -7,7 +7,7 @@
     <title>Número de ambitos</title>
 </head>
 <body>
-    <form action="añadirAmbito.php" method="post">
+    <form action="index.php?c=Recoger&m=numAmbitos" method="post">
         <h2>¿Cuántos ambitos quieres añadir?</h2>
         <input type="number" name="numAmbitos">
         <input type="submit">

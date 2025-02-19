@@ -1,5 +1,5 @@
 <?php
-    class RecogerAmbitos{
+    class MRecoger{
         private $conexion;
 
         public function __construct() {
@@ -8,8 +8,7 @@
             $this->conexion= $objConexion->conexion;
         }
 
-        public function recogerAmbitos(){
-            $nombreAmbito = $_POST["nombAmbito"];
+        public function recogerAmbitos($nombreAmbito){
             //print_r($nombreAmbito);
             $sql = 'INSERT INTO ambitos(nombre) VALUES (?)';
             $stmt = $this->conexion->prepare($sql);
@@ -21,12 +20,19 @@
             
             $stmt->close();
 
-            return "Ambitos guardados correctamentes";
+            return 'c';
         }
 
-    }
-    if (isset($_POST["nombAmbito"])) {
-        $recoger = new RecogerAmbitos();
-        echo $recoger->recogerAmbitos();
+        public function existeAmbito($nombre) {
+            $sql = 'SELECT COUNT(*) FROM ambitos WHERE nombre = ?';
+            $stmt = $this->conexion->prepare($sql);
+            $stmt->bind_param('s', $nombre);
+            $stmt->execute();
+            $stmt->bind_result($count);
+            $stmt->fetch();
+            $stmt->close();
+    
+            return $count > 0;
+        }
     }
 ?>

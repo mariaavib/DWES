@@ -12,9 +12,9 @@
         <?php
             //Recorre cada elemento del array $datos
             if(isset($datos['errores'])){
-                echo '<div style="color: red;"><ul>';
+                echo '<div class="errores"><ul>';
                 foreach($datos['errores'] as $error){
-                    echo '<li>'.$error.'</li>';
+                    echo '<li class="error">'.$error.'</li>';
                 }
                 echo '</ul></div>';
                 foreach ($datos['datos'] as $valor) {

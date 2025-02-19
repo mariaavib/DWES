@@ -32,7 +32,8 @@ input[type="submit"] {
 }
 
 input[type="number"] {
-    width: 80%;
+    width: 98%;
+    display: block;
     margin: 0 auto;
 }
 

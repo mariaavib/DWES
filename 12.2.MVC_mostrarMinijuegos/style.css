@@ -1,0 +1,158 @@
+/* Estilos generales */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    color: #333;
+    text-align: center;
+    padding: 20px;
+}
+
+/* Contenedor del formulario */
+form {
+    background: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    display: inline-block;
+    text-align: left;
+}
+
+/* Títulos */
+h1 {
+    font-size: 24px;
+    color: #444;
+    margin-bottom: 15px;
+}
+
+/* Estilos de los checkboxes */
+input[type="checkbox"] {
+    margin-right: 8px;
+    transform: scale(1.2);
+    cursor: pointer;
+}
+
+/* Estilos para el checkbox de "Aceptar los términos" */
+input[type="checkbox"]#terminos {
+    margin-top: 20px; 
+    font-size: 20px;
+    transform: scale(1.2); 
+    cursor: pointer;
+}
+
+/* Etiqueta del checkbox de términos */
+label[for="terminos"] {
+    font-size: 16px;
+    color: #333;
+    font-weight: bold;
+    cursor: pointer;
+    margin-left: 8px; 
+}
+
+/* Etiqueta de los checkboxes */
+label {
+    font-size: 16px;
+    cursor: pointer;
+}
+
+/* Botón de enviar */
+input[type="submit"] {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    margin-top: 15px;
+    background: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+input[type="submit"]:hover {
+    background: #0056b3;
+}
+
+div {
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    max-width: 600px;
+    margin: auto;
+}
+
+h2 {
+    color: #333;
+    border-bottom: 2px solid #007BFF;
+    padding-bottom: 5px;
+}
+
+p {
+    font-size: 16px;
+    color: #555;
+}
+
+li {
+    background: #007BFF;
+    color: white;
+    padding: 8px;
+    margin: 5px 0;
+    border-radius: 5px;
+    margin-bottom: 20px;
+    list-style-type: none;
+    font-size: 20px;
+}
+
+a{
+    font-size: 20px;
+    background-color: #007BFF;
+    color: #fff;
+    text-decoration: none;
+    padding: 10px;
+    border-radius: 5px; 
+}
+
+a:hover{
+    background-color: #2c8ff8;
+}
+
+.errores{
+    margin-bottom: 5%;
+    text-align: center;
+}
+
+.error{
+    font-size: 15px;
+    background-color: #1e7e34;
+}
+
+button[type="submit"] {
+    display: block;
+    width: 100%;
+    padding: 12px;
+    margin-top: 20px;
+    background-color: #28a745; 
+    color: white;
+    border-radius: 5px;
+    font-size: 18px;
+    cursor: pointer;
+    transition: all 0.3s ease; 
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+button[type="submit"]:hover {
+    background-color: #218838;
+    transform: scale(1.05); 
+}
+
+button[type="submit"]:active {
+    background-color: #1e7e34; 
+    transform: scale(1); /
+}
+
+button[type="submit"]:focus {
+    outline: none; 
+    box-shadow: 0 0 10px rgba(0, 128, 0, 0.5); 
+}
