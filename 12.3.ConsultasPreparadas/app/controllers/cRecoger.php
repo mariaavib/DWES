@@ -9,63 +9,70 @@
             $this->objModelo = new MRecoger();
         }
 
+        //Metodo predeterminado que establece la vista principal
         public function predeterminado(){
             $this->vista = 'numAmbitos';
             return true; 
         }
 
-        public function numAmbitos(){
+        //Metodo para manejar la validación del número de ámbitos
+        public function numAmbitos() {
             $this->vista = 'addAmbito';
-            //Validar que se ha introducido valor en el formulario
-            if (isset($_POST["numAmbitos"]) && $_POST["numAmbitos"] > 0){
-                $numAmbitos = $_POST["numAmbitos"];
-                return $numAmbitos; 
-            }else{
+        
+            // Validación del campo numAmbitos
+            if (isset($_POST["numAmbitos"]) && is_numeric($_POST["numAmbitos"]) && $_POST["numAmbitos"] > 0) {
+                return (int)$_POST["numAmbitos"];  //Si pasa la validación devuelve el número
+            } else {
+                //Si no pasa la validación se generan los errores y se retorna
                 $this->vista = 'numAmbitos';
-                echo "Ingresa un número válido de ámbitos.";
-                return false;
+                $this->errores[] = "Ingresa un número válido de ámbitos.";// Agrega un mensaje de error al array errores
+                return ["errores" => $this->errores]; //Enviar errores a la vista
             }
         }
-
+        
+        //Metodo para manejar la adición de ámbitos
         public function add(){
             $this->vista = 'addAmbito';
-    
+        
             if (isset($_POST["nombAmbito"])) {
-                $nombres = $_POST["nombAmbito"];
-                $nombresIntroducido = []; //Array para guardar los nombres introducidos por el usuario, sin que esten repetidos
-                $nombresVistos = []; //Para verificar duplicados
-    
-                //Eliminar espacios en blanco al inicio y final de cada nombre
+                $nombres = $_POST["nombAmbito"]; // Guarda los nombres de los ámbitos del formulario
+                $nombresIntroducido = [];//Array para almacenar los nombres de ámbitos corregidos
+                $nombresVistos = [];// Array para verificar nombres de ámbitos duplicados
+        
                 foreach ($nombres as $nombre) {
-                    $nombreCorregido = trim($nombre);
-    
-                    //Validar si el campo está vacío
+                    $nombreCorregido = trim($nombre);// Elimina espacios en blanco al inicio y al final del nombre
+        
                     if ($nombreCorregido === '') {
-                        $this->errores[] = "Error: Completa todos los campos.";
-                        return 'incorrecto';
+                        $this->errores[] = "Error: Completa todos los campos.";// Agrega un mensaje de error si el campo está vacío
+                    } else
+                        if (isset($nombresVistos[$nombreCorregido])) {
+                            $this->errores[] = "Error: No se pueden ingresar nombres de ámbito repetidos en el formulario.";// Agrega un mensaje de error si el campo está vacío
+                        } else {
+                            $nombresVistos[$nombreCorregido] = true; //Marca el nombre como visto
+                            $nombresIntroducido[] = $nombreCorregido; // Agrega el nombre corregido al array de nombres introducidos 
                     }
-    
-                    if (isset($nombresVistos[$nombreCorregido])) {
-                        $this->errores[] = "Error: No se pueden ingresar nombres de ámbito repetidos en el formulario.";
-                        return 'incorrecto';
-                    }
-    
-                    //Guardar el nombre en los arrays auxiliares
-                    $nombresVistos[$nombreCorregido] = true;
-                    $nombresIntroducido[] = $nombreCorregido;
                 }
-    
-                //Validar que no existan en la base de datos
+        
+                if (!empty($this->errores)) {
+                    return ["errores" => $this->errores]; // Enviar errores a la vista
+                }
+        
                 foreach ($nombresIntroducido as $nombre) {
                     if ($this->objModelo->existeAmbito($nombre)) {
-                        $this->errores[] = "Error: El ámbito '$nombre' ya existe en la base de datos.";
-                        return 'incorrecto';
+                        $this->errores[] = "Error: El ámbito '$nombre' ya existe en la base de datos.";// Agrega un mensaje de error si el campo está vacío
                     }
                 }
-    
+        
+                if (!empty($this->errores)) {
+                    return ["errores" => $this->errores]; // Enviar errores a la vista
+                }
+        
                 $datos = $this->objModelo->recogerAmbitos($nombresIntroducido);
                 return $datos;
             }
+            // Si no se recibieron datos del formulario almacenar el error y devolverlo
+            $this->errores[] = "Error: No se recibieron datos del formulario.";
+            return ["errores" => $this->errores];
         }
     }
 ?>
