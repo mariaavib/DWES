@@ -19,7 +19,7 @@
         <?php
             if (is_array($datos) && isset($datos['errores'])) {
                 echo '<div class="errores"><ul>';
-                // Recorre cada error y lo muestra 
+                // Recorre el array y muestra los errores
                 foreach ($datos['errores'] as $error) {
                     echo '<p class="error">'.$error.'</p>';
                 }

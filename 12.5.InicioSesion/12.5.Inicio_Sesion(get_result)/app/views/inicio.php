@@ -7,20 +7,26 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <form action="index.php?c=Usuarios&m=inicio" method="post">
-        <label for="email">Correo: </label>
-        <input type="text" name="email" id="email">
+<form action="index.php?c=Usuarios&m=inicioSesion" method="post">
+        <label for="correo">Correo: </label>
+        <input type="text" name="correo" id="email">
         <label for="passw">Contraseña: </label>
         <input type="password" name="passw" id="passw">
         
         <button type="submit">Iniciar Sesión</button>
-        <?php
-            if($datos){
-                echo "Has iniciado sesion correctamente";
-            }else{
-                echo "Error";
-            }
-        ?>
+        <div>
+            <?php
+                if (is_array($datos) && isset($datos['errores'])) {
+                    echo '<div class="errores"><ul>';
+                    // Recorre el array y muestra los errores
+                    foreach ($datos['errores'] as $error) {
+                        echo '<p class="error">'.$error.'</p>';
+                    }
+                }
+                echo '</ul></div>';
+            ?>
+    </div>
     </form>
+    
 </body>
 </html>

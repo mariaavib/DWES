@@ -8,6 +8,7 @@ class MUsuarios {
         $this->conexion = $objConexion->conexion;
     }
 
+    //Insertar usuarios
     public function insertarUsuarios(){
         $usuarios = [
             ['correo' => 'usuario1@gmail.com', 'passw' => '123456', 'nombre' => 'Celia Moruno', 'telefono' => '666200120'],
@@ -44,6 +45,7 @@ class MUsuarios {
         echo "Usuarios insertados correctamente.";
     }
 
+    //Comprobar que existen usuarios
     public function usuariosExistentes() {
         // Consulta para contar los usuarios existentes en la base de datos
         $sql = "SELECT COUNT(*) FROM usuario";
@@ -56,6 +58,7 @@ class MUsuarios {
             return true;
     }
 
+    //Validar el usuario
     public function validarUsuario($correo,$passw){
         $sql = "SELECT * FROM usuario WHERE correo = ? AND passw = ?";
         $stmt = $this->conexion->prepare($sql);
@@ -75,6 +78,7 @@ class MUsuarios {
         }
     }
 
+    //Cambiar la contraseña
     public function cambiarPassw($correo,$nuevaPassw){
         // Consulta SQL para actualizar la contraseña del usuario
         $sql = "UPDATE usuario SET passw = ? WHERE correo = ?";
@@ -86,14 +90,13 @@ class MUsuarios {
         // Ejecutamos la consulta
         if ($stmt->execute()) {
             echo "Contraseña cambiada correctamente.";
-        } else {
-            die('Error al ejecutar la consulta: ' . $stmt->error);
         }
 
         // Cerramos la sentencia preparada
         $stmt->close();
     }
 
+    //Modificar los datos
     public function modificarUsuario($idUsuario, $nombre, $correo, $telefono){
         $sql = "UPDATE usuario SET nombre = ?, correo = ?, telefono = ? WHERE idUsuario = ?";
         $stmt = $this->conexion->prepare($sql);

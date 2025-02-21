@@ -1,6 +1,6 @@
 <?php
-    define('SERVIDOR','localhost');
-    define('USSER','root');
+    define('SERVIDOR','esvirgua.com');
+    define('USSER','');
     define('PASSW','');
-    define('BASEDATOS','iniciosesion');
+    define('BASEDATOS','');
 ?>

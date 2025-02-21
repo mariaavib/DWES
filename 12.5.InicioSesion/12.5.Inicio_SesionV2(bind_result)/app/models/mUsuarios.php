@@ -8,9 +8,9 @@
             $this->conexion = $objConexion->conexion;
         }
 
-        public function inicioUsuario($correo){
+        public function inicioUsuario($correo,$passw){
             //Consulta select para seleccionar el correo y la contraseña
-            $sql = 'SELECT correo,passw FROM usuario WHERE correo = (?)';
+            $sql = 'SELECT correo,passw FROM usuario WHERE correo = (?) AND passw = ?';
             $stmt = $this->conexion->prepare($sql); //Analizar la consulta una sola vez
             $stmt->bind_param('s', $correo); //Decir el tipo de dato que es y asignarle la variable $correo
             $stmt->execute(); //Ejecutar consulta

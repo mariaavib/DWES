@@ -55,9 +55,19 @@ button:hover {
     background-color: #0056b3;
 }
 
-.message {
-    text-align: center;
-    color: #ff0000;
-    font-size: 14px;
+h1 {
+    color: #444;
+    margin-bottom: 15px;
+}
+
+a {
+    display: block;
     margin-top: 10px;
+    color: #007bff;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+a:hover {
+    text-decoration: underline;
 }
