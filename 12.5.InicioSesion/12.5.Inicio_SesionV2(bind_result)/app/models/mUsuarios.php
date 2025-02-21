@@ -16,7 +16,9 @@
             $stmt->execute(); //Ejecutar consulta
             $stmt->bind_result($correo,$passw); //Vincula las variables a los resultados de la consulta
             $stmt->fetch(); //Obtiene los resultados de la consulta
-            return array('correo'=>$correo, 'passw'=>$passw); //Devuelve los resultados como un array asociativo
+            // Almacena los resultados en un array asociativo
+            $resultado = array('correo' => $correo, 'passw' => $passw);
+            return $resultado;
         }
     }
 ?>

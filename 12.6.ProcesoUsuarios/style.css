@@ -1,0 +1,112 @@
+/* ============================= */
+/*          GENERAL              */
+/* ============================= */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+body {
+    background-color: #f4f4f4;
+    color: #333;
+    line-height: 1.6;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    padding: 20px;
+}
+
+/* ============================= */
+/*         CONTAINER             */
+/* ============================= */
+.container {
+    width: 100%;
+    max-width: 500px;
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+/* ============================= */
+/*         TITULOS               */
+/* ============================= */
+h1, h2 {
+    color: #444;
+    margin-bottom: 15px;
+}
+
+/* ============================= */
+/*         FORMULARIOS           */
+/* ============================= */
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+label {
+    font-weight: bold;
+    text-align: left;
+}
+
+input {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+    width: 100%;
+}
+
+button {
+    background: #28a745;
+    color: white;
+    border: none;
+    padding: 10px;
+    font-size: 18px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+button:hover {
+    background: #218838;
+}
+
+/* ============================= */
+/*         ENLACES               */
+/* ============================= */
+a {
+    display: inline-block;
+    margin-top: 10px;
+    color: #007bff;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+/* ============================= */
+/*         ERRORES               */
+/* ============================= */
+.errores {
+    background: #ffdddd;
+    border-left: 5px solid red;
+    padding: 10px;
+    margin: 10px 0;
+    border-radius: 5px;
+}
+
+.error {
+    color: red;
+    font-size: 14px;
+}
+
+
