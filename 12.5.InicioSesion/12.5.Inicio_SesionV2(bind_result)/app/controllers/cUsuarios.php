@@ -2,9 +2,10 @@
     class CUsuarios{
         public $objModelo;
         public $vista;
+        public $errores = [];
 
         public function __construct(){
-            require_once(RUTA_MODELOS.'Usuarios.php'); 
+            require_once(RUTA_MODELOS.'Usuarios.php');
             $this->objModelo = new MUsuarios();
         }
 

@@ -6,7 +6,7 @@
     <link rel="stylesheet" href="style.css">
     <title>Perfil del usuario</title>
 </head>
-<body>
+<body class="inicio">
     <h1>Has iniciado sesión</h1>
     <a href="index.php" class="boton-volver">VOLVER</a>
 </body>

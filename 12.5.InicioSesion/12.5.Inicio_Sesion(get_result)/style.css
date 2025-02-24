@@ -71,3 +71,15 @@ a {
 a:hover {
     text-decoration: underline;
 }
+
+.inicio{
+    flex-direction: column;
+}
+
+.error{
+    padding: 10px 5px;
+    width: 100%;
+    background-color: rgba(224, 96, 96, 0.363);
+    border-left: 4px solid red;
+    border-radius: 8px;
+}
