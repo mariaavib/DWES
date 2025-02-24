@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Inicio Sesion</title>
+    <title>Inicio Sesion Get Result</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
