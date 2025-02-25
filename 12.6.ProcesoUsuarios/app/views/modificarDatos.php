@@ -22,13 +22,13 @@
 
         <form action="index.php?c=Usuarios&m=modificarDatos" method="POST">
             <label for="nombre">Nombre:</label>
-            <input type="text" id="nombre" name="nombre" value="<?php echo $_SESSION['nombre'] ?? ''; ?>">
+            <input type="text" id="nombre" name="nombre" value="<?php echo $_SESSION['nombre']''; ?>">
 
             <label for="correo">Correo:</label>
-            <input type="email" id="correo" name="correo" value="<?php echo $_SESSION['correo'] ?? ''; ?>">
+            <input type="email" id="correo" name="correo" value="<?php echo $_SESSION['correo']''; ?>">
 
             <label for="telefono">Teléfono:</label>
-            <input type="text" id="telefono" name="telefono" value="<?php echo $_SESSION['telefono'] ?? ''; ?>">
+            <input type="text" id="telefono" name="telefono" value="<?php echo $_SESSION['telefono']  ''; ?>">
 
             <button type="submit">Guardar Cambios</button>
         </form>
