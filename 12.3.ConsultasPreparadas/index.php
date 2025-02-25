@@ -19,6 +19,7 @@
     if(method_exists($objControlador, $_GET['m'])){
         $datos = $objControlador ->{$_GET['m']}();
     }
+    
     require_once(RUTA_VISTAS.$objControlador->vista.'.php');
     
 ?>
