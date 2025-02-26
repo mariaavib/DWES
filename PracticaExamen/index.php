@@ -12,13 +12,14 @@
     $rutaControlador = RUTA_CONTROLADOR.$_GET['c'].'.php';
     require_once($rutaControlador);
 
-    $controlador = $_GET['c'];
+    $controlador = 'C'.$_GET['c'];
     $objControlador = new $controlador();
     $datos = [];
 
-    if(method_exists($objControlador, $_GET['m'])){
-        $datos = $objControlador ->{$_GET['m']}();
+    if(method_exists($objControlador,$_GET['m'])){
+        $datos = $objControlador->{$_GET['m']}();
     }
-    require_once(RUTA_VISTAS.$objControlador->vista.'.php');
+
+    require_once(RUTA_VISTAS.$objControlador->vistas.'.php');
 
 ?>
