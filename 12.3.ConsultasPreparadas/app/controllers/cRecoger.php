@@ -30,7 +30,7 @@
             }
         }
         
-        //Metodo para manejar la adición de ámbitos
+        //Metodo para menjar el añadir ámbitos
         public function add(){
             $this->vista = 'addAmbito';
         
