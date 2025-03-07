@@ -13,5 +13,10 @@
             $ambitos = $this->objModelo->obtenerAmbitos();
             return $ambitos;
         }
+
+        public function mostrarFormulario(){
+            $this->vista = 'views/modificar.php';
+            $this->objModelo->mostrarDatosAmbito();
+        }
     }
 ?>

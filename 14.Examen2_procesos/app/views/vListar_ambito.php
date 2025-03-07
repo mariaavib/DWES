@@ -11,6 +11,7 @@
         <?php
             foreach($ambitos as $ambito){
                 echo '<li>'.$ambito['nombre'].'</li>';
+                echo '<a href="">Editar</a>';
             }
         ?>
     </ul>

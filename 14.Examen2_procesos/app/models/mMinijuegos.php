@@ -22,5 +22,9 @@
 
             return $ambitos;
         }
+
+        public function mostrarDatosAmbito(){
+            
+        }
     }
 ?>
