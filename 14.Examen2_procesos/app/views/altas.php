@@ -1,3 +1,4 @@
+<!-- Vista para añadir un minijuego -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -7,16 +8,20 @@
 </head>
 <body>
     <h2>Datos del minijuego</h2>
-    <form action="" method="post">
+    <form action="alta_minijuegos.php" method="post">
         <label for="nombre">Nombre del juego: </label>
         <input type="text" name="nombre" id="nombre">
         <select name="ambito" id="ambito">
-            <option value=""></option>
-        </select>
+        <?php
+            foreach($ambitos as $ambito){
+                echo '<option value="'.$ambito['idambito'].'">'.$ambito['nombre'].'</option>';
+            }
+        ?>   
         <label for="clase">Recomendado para: </label>
         <input type="checkbox" name="eso" id="eso">ESO
         <input type="checkbox" name="ciclos" id="ciclos">ciclos
         <input type="checkbox" name="bachillerato" id="bachillerato">bachillerato
+        <input type="submit" value="Enviar">
     </form>
 </body>
 </html>

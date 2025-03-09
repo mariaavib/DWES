@@ -1,3 +1,4 @@
+<!-- Vista principal que lista los ambitos -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -6,12 +7,12 @@
     <title>Listar</title>
 </head>
 <body>
-    <a href="">Añadir Ámbito</a>
+    <a href="formulario_alta.php">Añadir Minijuego</a>
     <ul>
         <?php
             foreach($ambitos as $ambito){
                 echo '<li>'.$ambito['nombre'].'</li>';
-                echo '<a href="">Editar</a>';
+                echo '<a href="formulario_modificar.php?id='.$ambito['idambito'].'">Editar</a>';
             }
         ?>
     </ul>
