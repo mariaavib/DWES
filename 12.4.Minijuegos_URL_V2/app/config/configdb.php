@@ -1,6 +1,6 @@
 <?php
-    define('SERVIDOR','');
-    define('USSER','');
+    define('SERVIDOR','localhost');
+    define('USSER','root');
     define('PASSW','');
-    define('BASEDATOS','');
+    define('BASEDATOS','minijuegos');
 ?>
