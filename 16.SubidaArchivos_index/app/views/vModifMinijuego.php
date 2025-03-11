@@ -8,19 +8,15 @@
 </head>
 <body>
     <form action="modificarMinijuego.php" method="POST" enctype="multipart/form-data">
-        <input type="hidden" name="id" value="<?php echo $minijuego['idMinijuego']; ?>">
+        <input type="hidden" name="id" value="">
         <label for="nombre">Nombre:</label>
-        <input type="text" name="nombre" id="nombre" value="<?php echo $minijuego['nombre']; ?>"><br>
+        <input type="text" name="nombre" id="nombre" value=""><br>
 
         <label for="imagen">Imagen:</label>
         <input type="file" name="imagen" id="imagen"><br>
         <!-- Mostrar la imagen actual -->
-        <?php 
-            if (!empty($minijuego['imagen'])) {
-                echo '<p>Imagen actual: <img src="'.$minijuego['imagen'].'"alt="Imagen del Minijuego" width="100"></p>';
-            }
-        ?>
         <input type="submit" value="Modificar">
+        <a href="index.php">Volver</a>
     </form>
 </body>
 </html>

@@ -48,7 +48,7 @@ INSERT INTO minijuegos(nombre,idAmbito) VALUES
 ('Derechos para todos', 5),
 ('Lucha por la justicia', 5);
 
--- Consulta para extraer ek ambito seleccionado y el minijuego
+-- Consulta para extraer el ambito seleccionado y el minijuego
 SELECT ambitos.nombre AS NombreAmbito, minijuegos.nombre AS NombreMinijuego
 FROM ambitos
 INNER JOIN minijuegos

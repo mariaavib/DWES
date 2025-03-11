@@ -143,7 +143,7 @@
                     // Aquí estamos tomando la ruta de la imagen actual del minijuego
                     $rutaImagen = $minijuego['imagen'];  // 'imagen' es el campo de la ruta de la imagen en la base de datos
 
-                    // Actualizamos el minijuego sin cambiar la imagen
+                    //Actualizamos el minijuego con los datos nuevos
                     $this->objModelo->actualizarMinijuego($idMinijuego, $nombre, $rutaImagen);
                     echo "Minijuego modificado correctamente.";
                     header('Location: gestion_minijuegos.php');
