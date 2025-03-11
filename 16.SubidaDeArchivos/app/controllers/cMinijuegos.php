@@ -39,6 +39,13 @@
         
                 // Si el nombre y el ámbito son correctos, proceder con la verificación de la imagen
                 if ($correcto == 1) {
+                    // Verificación del tipo MIME para asegurar que el archivo es una imagen válida
+                    $tiposPermitidos = ["image/jpeg", "image/png", "image/jpg"];
+                    if (!in_array($imagen['type'], $tiposPermitidos)) {
+                        echo "<p style='color:red;'>El tipo de archivo no es válido. Solo se permiten imágenes JPEG, PNG o GIF.</p>";
+                        $correcto = 0;
+                    }
+        
                     // Subir la imagen a la carpeta 'assets/imgMinijuegos/'
                     $carpeta = 'assets/imgMinijuegos/';
                     $ruta = $carpeta . $_FILES['imagen']['name'];
@@ -56,27 +63,28 @@
                     }
                 }
         
-                // Si no hay errores proceder con la subida del archivo
+                // Si no hay errores subir el archivo
                 if ($correcto == 1) {
-                    // Mover el archivo a la carpeta de destino
+                    //Mover el archivo a la carpeta de destino
                     if (move_uploaded_file($imagen['tmp_name'], $ruta)) {
-                        // Insertar el minijuego en la base de datos con el nombre y la ruta de la imagen
+                        //Insertar el minijuego en la base de datos con el nombre y la ruta de la imagen
                         $this->objModelo->insertarMinijuego($nombre, $idAmbito, $ruta);
                         
                         // Redirigir al proceso de gestión de minijuegos
                         header('Location: gestion_minijuegos.php');
+                        exit;
                     } else {
                         echo "<p style='color:red;'>No se ha subido el archivo.</p>";
                         $correcto = 0;  
                     }
                 }
         
-                //Si hay errores mostrar un boton para volver al proceso que muestra el formulario
+                // Si hay errores mostrar un botón para volver al proceso que muestra el formulario
                 if ($correcto == 0) {
                     echo "<a href='mostrarFormAltas.php'>Volver</a>";
                 }
             }
-        }      
+        }             
         
         public function mostrarFormuModif($idMinijuego){
             // print_r($idMinijuego);
