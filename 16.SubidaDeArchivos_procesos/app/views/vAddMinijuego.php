@@ -24,13 +24,5 @@
         <input type="submit" value="Enviar">
         <a href="gestion_minijuegos.php">Volver</a>
     </form>
-    <!-- <?php
-        // Mostrar el mensaje de error si el formulario no está completo
-  
-        if (empty($_POST['nombre']) || empty($_POST['idAmbito']) || empty($_FILES['imagen']['name'])) {
-            echo "<p style='color:red;'>No estan rellenos todos los campos obligatorios.</p>";
-            echo "<a href='altaMinijuego.php'>Volver</a>"; 
-        }
-    ?> -->
 </body>
 </html>

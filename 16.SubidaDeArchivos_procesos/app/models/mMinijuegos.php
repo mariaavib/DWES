@@ -55,12 +55,24 @@
             $stmt->execute();
         }
 
-
         public function deleteMinijuego($idMinijuego){
             $sql = "DELETE FROM minijuegos WHERE idMinijuego = ?";
             $stmt = $this->conexion->prepare($sql);
             $stmt->bind_param("i", $idMinijuego);
             $stmt->execute();
+        }
+
+        public function obtenerMinijuegoAmbitos($idMinijuego){
+            $sql = 'SELECT minijuegos.*, ambitos.nombre AS nombreAmbito, ambitos.idAmbito
+                    FROM minijuegos
+                        INNER JOIN ambitos ON minijuegos.idAmbito = ambitos.idAmbito
+                            WHERE minijuegos.idMinijuego = ?';
+
+            $stmt = $this->conexion->prepare($sql);
+            $stmt->bind_param('i', $idMinijuego);
+            $stmt->execute();
+            $resultado = $stmt->get_result();
+            return $resultado->fetch_assoc();
         }
     }
 
