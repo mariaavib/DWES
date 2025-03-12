@@ -18,25 +18,5 @@
         <input type="checkbox" name="terminos" id="terminos"><strong>Acepta los términos</strong>
         <button type="submit">Enviar</button>
     </form>
-    <script>
-        
-        function validarFormulario() {
-            let checkbox = document.querySelectorAll('input[name="ambitos[]"]:checked');
-            
-            if (checkbox.length === 0) {
-                alert("Por favor, selecciona al menos un ámbito.");
-                return false; 
-            }
-
-            let checkboxTerminos = document.getElementById('terminos');
-            if (!checkboxTerminos.checked) {
-                alert("Debes aceptar los términos.");
-                return false;
-            }
-            
-
-            return true;
-        }
-    </script>
 </body>
 </html>
