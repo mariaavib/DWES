@@ -12,7 +12,7 @@
     $rutaControlador = RUTA_CONTROLADOR.$_GET['c'].'.php';
     require_once($rutaControlador);
 
-    $controlador = $_GET['c'];
+    $controlador = 'C'.$_GET['c'];
     $objControlador = new $controlador();
     $datos = [];
 

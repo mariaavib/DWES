@@ -8,7 +8,7 @@
 </head>
 <body>
     <div class="container">
-        <h2>Cambiar Contraseña</h2>
+        <h2>Cambiar Contraseña</h2>     
     <?php
         // Si hay errores, los mostramos
         if (!empty($errores)) {
