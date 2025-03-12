@@ -72,7 +72,6 @@
                         
                         // Redirigir al proceso de gestión de minijuegos
                         header('Location: gestion_minijuegos.php');
-                        exit;
                     } else {
                         echo "<p style='color:red;'>No se ha subido el archivo.</p>";
                         $correcto = 0;  
