@@ -22,7 +22,7 @@
         <label for="imagen">Imagen:</label>
         <input type="file" name="imagen" id="imagen"><br>
         <input type="submit" value="Enviar">
-        <a href="gestion_minijuegos.php">Volver</a>
+        <a href="gestion_minijuegos.php" class="volver">Volver</a>
     </form>
 </body>
 </html>

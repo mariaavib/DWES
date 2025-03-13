@@ -8,7 +8,7 @@
 </head>
 <body>
     <?php
-        print_r($data);
+        //print_r($data);
     ?>
     <form action="modificarMinijuego.php" method="POST" enctype="multipart/form-data">
         <input type="hidden" name="id" value="<?php echo $data['minijuego']['idMinijuego']; ?>">
@@ -32,7 +32,7 @@
             }
         ?>
         <input type="submit" value="Modificar">
-        <a href="gestion_minijuegos.php">Volver</a>
+        <a href="gestion_minijuegos.php" class="volver">Volver</a>
     </form>
 </body>
 </html>

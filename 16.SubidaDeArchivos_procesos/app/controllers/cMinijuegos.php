@@ -11,7 +11,6 @@
         public function gestMinijuegos(){
             $this->vista = 'views/vGestionMinijuegos.php';
             $minijuegos = $this->objModelo->obtenerMinijuegos();
-            //var_dump($minijuegos);
             return $minijuegos;
         }
 
@@ -22,71 +21,68 @@
         }
 
         public function addMinijuego() {
-            // Verificar si el formulario se envió con los datos necesarios
             if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 $nombre = $_POST['nombre'];
                 $idAmbito = $_POST['idAmbito'];
                 $imagen = $_FILES['imagen'];
-        
-                // Variable para controlar si todo está correcto
+
                 $correcto = 1;
-        
-                // Verificar si el nombre, el ámbito y la imagen no están vacíos
+
+                // Validación
                 if (empty($nombre) || empty($idAmbito) || empty($imagen['name'])) {
-                    echo "<p style='color:red;'>Por favor, rellene todos los campos obligatorios.</p>";
-                    $correcto = 0;  // Cambiar a 0 si hay un error
+                    $error_message = "Por favor, rellene todos los campos obligatorios.";
+                    $correcto = 0;
                 }
-        
-                // Si el nombre y el ámbito son correctos, proceder con la verificación de la imagen
+
                 if ($correcto == 1) {
-                    // Verificación del tipo MIME para asegurar que el archivo es una imagen válida
+                    // Verificación de tipo de archivo
                     $tiposPermitidos = ["image/jpeg", "image/png", "image/jpg"];
                     if (!in_array($imagen['type'], $tiposPermitidos)) {
-                        echo "<p style='color:red;'>El tipo de archivo no es válido. Solo se permiten imágenes JPEG, PNG o GIF.</p>";
+                        $error_message = "El tipo de archivo no es válido. Solo se permiten imágenes JPEG, PNG o GIF.";
                         $correcto = 0;
                     }
-        
-                    // Subir la imagen a la carpeta 'assets/imgMinijuegos/'
+
+                    // Ruta del archivo
                     $carpeta = 'assets/imgMinijuegos/';
                     $ruta = $carpeta . $_FILES['imagen']['name'];
-        
-                    // Verificar si el archivo ya existe
+
+                    // Verificación si el archivo ya existe
                     if (file_exists($ruta)) {
-                        echo "<p style='color:red;'>El archivo ya existe.</p>";
-                        $correcto = 0;  
+                        $error_message = "El archivo ya existe.";
+                        $correcto = 0;
                     }
-        
-                    // Verificar el tamaño del archivo (500KB máximo)
-                    if ($imagen['size'] > 500000) { 
-                        echo "<p style='color:red;'>El archivo es demasiado grande.</p>";
-                        $correcto = 0;  
+
+                    // Verificar el tamaño
+                    if ($imagen['size'] > 500000) {
+                        $error_message = "El archivo es demasiado grande.";
+                        $correcto = 0;
                     }
                 }
-        
-                // Si no hay errores subir el archivo
+
+                // Subir el archivo si todo es correcto
                 if ($correcto == 1) {
-                    //Mover el archivo a la carpeta de destino
                     if (move_uploaded_file($imagen['tmp_name'], $ruta)) {
-                        //Insertar el minijuego en la base de datos con el nombre y la ruta de la imagen
+                        // Insertar en la base de datos
                         $this->objModelo->insertarMinijuego($nombre, $idAmbito, $ruta);
-                        
-                        // Redirigir al proceso de gestión de minijuegos
+
+                        // Redirigir sin salida previa
                         header('Location: gestion_minijuegos.php');
+                        exit;
                     } else {
-                        echo "<p style='color:red;'>No se ha subido el archivo.</p>";
-                        $correcto = 0;  
+                        $error_message = "No se ha subido el archivo.";
+                        $correcto = 0;
                     }
                 }
-        
-                // Si hay errores mostrar un botón para volver al proceso que muestra el formulario
+
                 if ($correcto == 0) {
+                    // Mostrar mensaje de error y permitir regresar al formulario
+                    echo "<p style='color:red;'>{$error_message}</p>";
                     echo "<a href='mostrarFormAltas.php'>Volver</a>";
                 }
             }
-        }             
-        
+        }
+
         public function mostrarFormuModif($idMinijuego){
-            // print_r($idMinijuego);
             $this->vista = 'views/vModifMinijuego.php';
             $minijuego = $this->objModelo->obtenerMinijuegoAmbitos($idMinijuego);
             $ambitos = $this->objModelo->obtenerAmbitos();
@@ -94,81 +90,86 @@
                 'minijuego' => $minijuego,
                 'ambitos' => $ambitos
             ];
-            
+
             include($this->vista);
         }
 
         public function modificarMinijuego() {
-            // Recogemos los datos del formulario
-            $idMinijuego = $_POST['id'];  
-            $nombre = $_POST['nombre'];   
-            $imagen = $_FILES['imagen'];  
             $correcto = 1;
-        
-            // Validar que el nombre no esté vacío
+            $idMinijuego = $_POST['id'];
+            $nombre = $_POST['nombre'];
+            $imagen = $_FILES['imagen'];
+
             if (empty($nombre)) {
-                echo "<p style='color:red;'>El nombre no puede estar vacío.</p>";
-                $correcto = 0;  
+                $error_message = "El nombre no puede estar vacío.";
+                $correcto = 0;
             }
-        
-            // Obtener la imagen actual del minijuego antes de modificarlo
+
+            // Obtener imagen actual
             $minijuego = $this->objModelo->obtenerMinijuegoId($idMinijuego);
-            $rutaImagenActual = $minijuego['imagen']; // Ruta de la imagen anterior
-        
-            // Si se ha subido una nueva imagen, validarla
+            $rutaImagenActual = $minijuego['imagen'];
+
             if ($imagen['error'] == 0) {
                 $carpeta = 'assets/imgMinijuegos/';
                 $rutaNueva = $carpeta . basename($imagen['name']);
-        
-                // Verificar si el archivo ya existe
+
+                // Verificación si el archivo ya existe
                 if (file_exists($rutaNueva)) {
-                    echo "<p style='color:red;'>El archivo ya existe.</p>";
+                    $error_message = "El archivo ya existe.";
                     $correcto = 0;
                 }
-        
-                // Verificar el tamaño del archivo (500KB máximo)
-                if ($imagen['size'] > 500000) { 
-                    echo "<p style='color:red;'>El archivo es demasiado grande.</p>";
+
+                if ($imagen['size'] > 500000) {
+                    $error_message = "El archivo es demasiado grande.";
                     $correcto = 0;
                 }
-        
-                // Si todo es correcto, mover el archivo a la carpeta de destino
+
                 if ($correcto == 1 && move_uploaded_file($imagen['tmp_name'], $rutaNueva)) {
-                    // **Eliminar la imagen anterior**
+                    // Eliminar la imagen anterior
                     if (file_exists($rutaImagenActual)) {
                         unlink($rutaImagenActual);
                     }
-        
-                    // Actualizar en la base de datos con la nueva imagen
+
+                    // Actualizar base de datos
                     $this->objModelo->actualizarMinijuego($idMinijuego, $nombre, $rutaNueva);
+
+                    // Redirigir sin salida previa
                     header('Location: gestion_minijuegos.php');
                     exit;
                 } else {
-                    echo "<p style='color:red;'>No se ha podido subir la nueva imagen.</p>";
+                    $error_message = "No se ha podido subir la nueva imagen.";
                     $correcto = 0;
                 }
             } else {
-                // Si no se subió una nueva imagen, usar la imagen actual
+                // Si no hay nueva imagen, mantener la actual
                 $this->objModelo->actualizarMinijuego($idMinijuego, $nombre, $rutaImagenActual);
+
+                // Redirigir sin salida previa
                 header('Location: gestion_minijuegos.php');
+                exit;
             }
-        
-            // Si hubo un error, mostrar un botón para volver
+
             if ($correcto == 0) {
+                // Mostrar mensaje de error y permitir regresar al formulario
+                echo "<p style='color:red;'>{$error_message}</p>";
                 echo "<a href='mostrarFormModif.php?id=$idMinijuego'>Volver</a>";
             }
-        }   
+        }
 
         public function eliminarMinijuego($idMinijuego){
             $minijuego = $this->objModelo->obtenerMinijuegoId($idMinijuego);
             $rutaImagen = $minijuego['imagen'];
 
-            if(file_exists($rutaImagen)){
+            // Validar si la ruta de la imagen es válida antes de eliminarla
+            if (!empty($rutaImagen) && file_exists($rutaImagen)) {
                 unlink($rutaImagen);
             }
 
             $this->objModelo->deleteMinijuego($idMinijuego);
+
+            // Redirigir sin salida previa
             header('Location: gestion_minijuegos.php');
+            exit;
         }
     }
-?>  
+?>
