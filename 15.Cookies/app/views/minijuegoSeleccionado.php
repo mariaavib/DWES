@@ -11,7 +11,7 @@
         <?php
             echo "<h2>".$_GET["nombre"]."</h2><br>";
             echo "<p id='url'>URL </p><br>";
-            echo "<a href=".$_GET["url"].">".$_GET["url"]."</a><br>";
+            //echo "<a href=".$_GET["url"].">".$_GET["url"]."</a><br>";
         ?> 
         <a href="index.php" id="volver">VOLVER</a>
     </div>
