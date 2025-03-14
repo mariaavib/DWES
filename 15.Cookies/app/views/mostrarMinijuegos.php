@@ -8,10 +8,12 @@
 </head>
 <body>  
     <div>
+    <?php //print_r($_COOKIE["minijuego_nombre"]); ?>
         <h2>Minijuego seleccionado anteriormente</h2>
         <?php
-            if (isset($_COOKIE["minijuego_nombre"]) && isset($_COOKIE["minijuego_url"])) {
+            if (!empty($_COOKIE["minijuego_nombre"])) {
                 echo '<p><strong>' . $_COOKIE["minijuego_nombre"] . '</strong></p>';
+                //echo '<a href="' . $_COOKIE["minijuego_url"] . '" target="_blank">Jugar ahora</a>';
             }
         ?>
     </div>
